@@ -1,12 +1,13 @@
-Identify the data type of the following values:
-99.9 - number
-"false" - string
-false - boolean
-'0' - string
-0 - number
-true - boolean
-'true' - string
+// Identify the data type of the following values:
+99.9  //number
+"false" //string
+false //boolean
+'0' //string
+0 //number
+true //boolean
+'true' //string
 
+/*
 What data type would best represent:
 
 A term or phrase typed into a search box? - string
@@ -15,5 +16,4 @@ A term or phrase typed into a search box? - string
 -Whether or not a coupon code is valid? - boolean
 -An email address typed into a registration form? - string
 -The price of a product? - number
-
-
+*/
