@@ -27,3 +27,60 @@ typeof  produces a string that contains the type of the operand it is used on
 >=      greater than or equal to
 <       less than
 <=      less than or equal to
+
+Variables:
+to define a variable:
+var variableName = value; OR var variableName = value, variable2 = value;
+-constants cannot be changed. To define:
+const variableName = value;
+
+Shorthand Assignment Operators:
+shorthand:      example:        Equivalent:
++=              x += 2;         x = x + 2;
+-=              x -= 2;         x = x -2;
+*=              x *= 2;         x = x * 2;
+/=              x /= 2;         x = x / 2;
+%=              x %= 2;         x = x % 2;
+
+Unary Operators:
++   plus
+-   negation
+++  increment
+--  decrement
+
+Converting between Strings and Numbers
+variable.toString()     turns number into string
+variable.toFixed(numerical value for how many decimal places desired)   returns a string with x amount of numbers after the decimal point
+Number()    turns a string into a number. will result in NaN if a number is not present in the string. Will not work if a string contains numbers and characters
+parseInt()      turns a string into a number. Will result in the numbers of a string being converted even if there are other characters present.
+
+Working with strings:
+.length     returns length of a string
+.indexOf(char)      returns index of specified characters. -1 will be returned if character cannot be found
+.replace(find, replace)     finds a subset of characters and replaces it. Returns a new string with the replacement.
+.substring(fromIndex, toIndex)      returns a substring
+.toUpperCase()      returns a new string in all uppper case
+.toLowerCase()      returns a new string in all lower case
+.trim()         returns a new string with excess whitespaces removed from the beginning and end
+
+JavaScript with HTML:
+Inline: <script>js code here</script>
+External: <script src"js path file here"></script>
+
+Logging to JavaScript Console:
+console.log(what to log here);      shorthand for typing it in intellij-log + tab
+
+Using strict:
+to use, type this at the top of the inline script or js file:
+"use strict";
+makes it so that javascript catches errors more strictly
+
+User Interaction:
+Alert message - shows a message to the user that can be closed out by hitting okay
+syntax: alert("message here");
+Confirm message - user can either hit okay or cancel, will return a boolean that can be saved for future use
+syntax: confirm("message here");
+Prompt message - allows the user to enter information that will return a STRING that can be stored
+syntax: prompt("message here");
+
+
