@@ -83,4 +83,54 @@ syntax: confirm("message here");
 Prompt message - allows the user to enter information that will return a STRING that can be stored
 syntax: prompt("message here");
 
+Functions:
+re-usable code for a specified task
+
+Using functions:
+call the function by name, with parenthesis, and any arguments
+if it returns a value, that value can be stored
+
+Defining Functions:
+function optionalFunctionName(parameters,parameters) {
+    *code to run*
+    return whateverToBeReturned
+}
+
+
+Anonymous Functions:
+-functions without a name that can be stored in a variable.
+Example:
+var increment = function(x) {
+    return x + 1;
+};
+
+var two = increment(1);
+
+Arguments/Parameters:
+argument - what the function is called with
+parameter - what the function is defined with
+*arguments passed to a function with no parameters will be ignored.
+
+*trying to store the result of a function without a return statement will result in undefined
+
+Function Scope:
+-Where a variable can be accessed.
+Global Variables:
+-can be accessed anywhere
+-use only when necessary
+Local Variables:
+-can be accessed within the scope they are declared in or any nested scopes
+-take precedence over global variables
+
+Immediately-Invoked Function Expression (IIFE)
+-allows variables to be isolated
+-all javascript code should be enclosed inside iife functions. this protects code from being exposed to the global scope.
+Example:
+// define a function and immediately invoke (i.e. call) it
+(function () {
+    var iffeVar = "I'm local to the IIFE.";
+})();
+
+alert(iffeVar); // undefined
+
 
