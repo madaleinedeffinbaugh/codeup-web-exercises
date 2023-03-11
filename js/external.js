@@ -39,13 +39,19 @@ alert("You will be receiving a total of $" + wagesRecieved + " for work this wee
 
 //3.3
 alert("Exercise 3: Scenario 3");
-//prompting the user to determine if the class is full or conflicts with their current schedule
-var full = confirm("Is this class full? Hit \"Ok\" for Yes and \"Cancel\" for No");
-var conflicts = confirm("Does the class conflict with other classes on the schedule? Hit \"Ok\" for Yes and \"Cancel\" for No");
-//if the class is BOTH not full and does not conflict, then the student is allowed to enroll
-var canEnroll = !full && !conflicts;
-//informing the student of their enrollment eligibility
-alert("It is " + canEnroll + " that you can enroll.");
+//Asking the user if they would like to sign up for classes.
+var wantToEnroll = confirm("Would you like to sign up for classes?");
+//if statement to try and sign then up only if they want it.
+if (wantToEnroll) {
+    //prompting the user to determine if the class is full or conflicts with their current schedule
+    var full = confirm("Is this class full? Hit \"Ok\" for Yes and \"Cancel\" for No");
+    var conflicts = confirm("Does the class conflict with other classes on the schedule? Hit \"Ok\" for Yes and \"Cancel\" for No");
+    //if the class is BOTH not full and does not conflict, then the student is allowed to enroll
+    var canEnroll = !full && !conflicts;
+    //informing the student of their enrollment eligibility
+    alert("It is " + canEnroll + " that you can enroll.");
+}
+
 
 //3.4
 alert("Exercise 3: Scenario 4");
