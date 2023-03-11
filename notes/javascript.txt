@@ -133,4 +133,34 @@ Example:
 
 alert(iffeVar); // undefined
 
+Conditionals:
+If/Else Statements:
+-if statement executes code based on certain conditions
+-if/else statement gives a default if the if statement is not met
+-if/else if/else allows for multiple conditions
 
+Ternary Operator (Shorthand If/Else):
+example:
+var message;
+if (success) {
+    message = "Operation was successful.";
+} else {
+    message = "Oops, something went wrong.";
+}
+// the above if/else can be re-written as:
+var message = (success) ? "Operation was successful." : "Oops, something went wrong.";
+
+Switch Statement:
+-alternative to if-else
+example:
+switch(condition) {
+    case "example" :
+        //do things
+        break;
+    case "example 2" :
+        //do more things
+        break;
+    default :
+        //default things
+        break;
+}
