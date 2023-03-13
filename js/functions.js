@@ -110,6 +110,11 @@
     }
 
     //following lines used to test code.
+    var originalPrice = 100;
+    var discountPercent = .2;
+    var newPrice = applyDiscount(originalPrice, discountPercent);
+    alert("The original bill was $100. The discount was 20%. The new price with the discount applied is $" + newPrice);
+
     //var price = Number(prompt("What is the price before discount?"));
     //var discount = Number(prompt("What is the discount (between 0 and 1)"));
     //alert("The new price with the discount applied is $" + applyDiscount(price, discount).toFixed(2));
