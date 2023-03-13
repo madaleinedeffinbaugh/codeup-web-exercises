@@ -51,7 +51,10 @@ var random = Math.floor((Math.random() * 3) + 1);
  * different result everytime you refresh the page if you are using the random
  * number)
  */
-
+function isTwo(number) {
+    return number === 2;
+}
+console.log(isTwo(random));
 /**
  * TODO:
  * Create a function named 'calculateTip' to calculate a tip on a bill at a
@@ -63,6 +66,12 @@ var random = Math.floor((Math.random() * 3) + 1);
  * > calculateTip(0.25, 25.50) // returns 6.375
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
+function calculateTip(percentage, total) {
+    return total * percentage;
+    //uncomment the line below and comment the line about to change the function from needing decimal format
+    //ex .20 vs 20
+    //return total * (percentage/100);
+}
 
 /**
  * TODO:
@@ -70,7 +79,12 @@ var random = Math.floor((Math.random() * 3) + 1);
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
-
+var billTotal = Number(prompt("What is the total of your bill?"));
+var tipPercent = Number(prompt("What percentage would you like to tip? (In decimal format)"));
+//uncomment the line below and comment the line above to change the prompt if the function was
+//changed to not need decimal format
+//var tipPercent = Number(prompt("What percentage would you like to tip? (Not in decimal format)"));
+alert("You should tip $" + calculateTip(billTotal, tipPercent).toFixed(2));
 /**
  * TODO:
  * Create a function named `applyDiscount`. This function should accept a price
@@ -85,5 +99,12 @@ var random = Math.floor((Math.random() * 3) + 1);
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+function applyDiscount(priceBeforeDiscount, discountPercentage) {
+    var discount = priceBeforeDiscount * discountPercentage;
+    return priceBeforeDiscount - discount;
+}
 
-
+//following lines used to test code.
+//var price = Number(prompt("What is the price before discount?"));
+//var discount = Number(prompt("What is the discount (between 0 and 1)"));
+//alert("The new price with the discount applied is $" + applyDiscount(price, discount).toFixed(2));
