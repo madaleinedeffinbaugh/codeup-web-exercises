@@ -85,6 +85,7 @@ syntax: prompt("message here");
 
 Functions:
 re-usable code for a specified task
+keeps code organized
 
 Using functions:
 call the function by name, with parenthesis, and any arguments
