@@ -109,6 +109,7 @@ var two = increment(1);
 Arguments/Parameters:
 argument - what the function is called with
 parameter - what the function is defined with
+    default parameter can be assigned - functionName(parameter, parameterWithDefault="") { (rest of function) }
 *arguments passed to a function with no parameters will be ignored.
 
 *trying to store the result of a function without a return statement will result in undefined
