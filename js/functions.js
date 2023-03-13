@@ -31,8 +31,9 @@
      */
     var myName = "Maddie";
     console.log(sayHello(myName));
-// Don't modify the following line, it generates a random number between 1 and 3
-// and stores it in a variable named random
+
+    // Don't modify the following line, it generates a random number between 1 and 3
+    // and stores it in a variable named random
     var random = Math.floor((Math.random() * 3) + 1);
 
     /**
@@ -84,9 +85,9 @@
      */
     var billTotal = Number(prompt("What is the total of your bill?"));
     var tipPercent = Number(prompt("What percentage would you like to tip? (In decimal format)"));
-//uncomment the line below and comment the line above to change the prompt if the function was
-//changed to not need decimal format
-//var tipPercent = Number(prompt("What percentage would you like to tip? (Not in decimal format)"));
+    //uncomment the line below and comment the line above to change the prompt if the function was
+    //changed to not need decimal format
+    //var tipPercent = Number(prompt("What percentage would you like to tip? (Not in decimal format)"));
     alert("You should tip $" + calculateTip(billTotal, tipPercent).toFixed(2));
 
     /**
@@ -108,9 +109,9 @@
         return priceBeforeDiscount - discount;
     }
 
-//following lines used to test code.
-//var price = Number(prompt("What is the price before discount?"));
-//var discount = Number(prompt("What is the discount (between 0 and 1)"));
-//alert("The new price with the discount applied is $" + applyDiscount(price, discount).toFixed(2));
+    //following lines used to test code.
+    //var price = Number(prompt("What is the price before discount?"));
+    //var discount = Number(prompt("What is the discount (between 0 and 1)"));
+    //alert("The new price with the discount applied is $" + applyDiscount(price, discount).toFixed(2));
 
 })();
