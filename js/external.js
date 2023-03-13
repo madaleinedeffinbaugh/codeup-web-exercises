@@ -13,7 +13,7 @@ alert("Great, " + userInput + " is my favorite color too!");
 
 //3.1
 alert("Exercise 3: Scenario 1");
-//gathering input from the user about how many days they had each movie and then saving iit
+//gathering input from the user about how many days they had each movie and then saving it
 var daysOfLittleMermaid = Number(prompt("How many days did you rent The Little Mermaid?"));
 var daysBrotherBear = Number(prompt("How many days did you rent Brother Bear?"));
 var daysOfHercules = Number(prompt("How many days did you rent Hercules?"));
