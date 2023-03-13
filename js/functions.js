@@ -20,14 +20,19 @@ function sayHello(name) {
  *
  * console.log 'helloMessage' to check your work
  */
-
+var helloMessage = sayHello("Maddie");
+console.log(helloMessage);
 /**
  * TODO:
  * Store your name as a string in a variable named 'myName', and pass that
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
-
+var myName = "Maddie";
+console.log(sayHello(myName));
+// Don't modify the following line, it generates a random number between 1 and 3
+// and stores it in a variable named random
+var random = Math.floor((Math.random() * 3) + 1);
 
 /**
  * TODO:
@@ -59,7 +64,6 @@ function sayHello(name) {
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
-
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
@@ -83,7 +87,3 @@ function sayHello(name) {
  */
 
 
-//following lines used to test code.
-//var price = Number(prompt("What is the price before discount?"));
-//var discount = Number(prompt("What is the discount (between 0 and 1)"));
-//alert("The new price with the discount applied is $" + applyDiscount(price, discount).toFixed(2));
