@@ -151,6 +151,7 @@ if (success) {
 }
 // the above if/else can be re-written as:
 var message = (success) ? "Operation was successful." : "Oops, something went wrong.";
+//(thing to compare) ? (thing to do if true) : (thing to do if false);
 
 Switch Statement:
 -alternative to if-else
