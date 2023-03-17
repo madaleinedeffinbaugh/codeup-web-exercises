@@ -220,3 +220,60 @@ Arrays:
     console.log("here is a shape " + shape);
  });
 
+ Manipulating Arrays:
+ -push and unshift (ADDING TO ARRAY)
+    -used to add items to an array
+    -push adds item at END of array
+    -unshift adds item to begining of array
+ -you can add multiple items using push or unshift if you seperate them by commas
+ -Ex's:
+    arrayName.push('add me to the end');
+    arrayName.unshift('add me to the beginning of the array');
+    arrayName.push("add me", "add me too");
+ -pop and shift (REMOVING FROM ARRAY)
+    -both used to remove elements from an array
+    -returns the items removed
+    -pop removes the last item
+    -shift removes the first item
+ -Ex's
+    -arrayName.pop() //removes last item
+    -arrayName.shift() //removes first item
+ -locating array elements
+    -indexOf //starts at beginning - returns first occurance of item
+    -lastIndexOf //starts at end
+    EX:
+        arrayName.indexOf('element name') // returns first index where that name is found
+ -slicing
+    -allows copying of a portion of an array
+    -does not change the original array
+    -takes two arguments to define where the portion wanted starts and stops - first is inclusive, second is exclusive
+    ex:
+        arrayName.slice(index1, index2)
+        arrayName.slice(inclusive, exclusive)
+        arrayName.slice(2,4) //return a new array with indices of 2 and 3
+ -reversing
+    -reverses the elements in an array
+    EX:
+        arrayName.reverse()
+ -sorting
+    -.sort()
+    -converts items in an array to string equivalent
+    -returns values sorted by that value
+    -this DOES MODIFY THE ORIGINAL AND RETURNED ARRAY
+ -converting between strings and arrays
+    -.split() on strings will convert them to arrays
+    -splits based on provided parameter
+    EX:
+        var string = "i am string"
+        string.split("") //will return an array for every character
+        string.split(" ") //will return an array for every word (seperated by space)
+    -.join()
+    -joins array elements into string
+    -will join them with delimiter if chosen
+    EX:
+        var array = ["Jake", "John", "Mary"]
+        array.join() // returns "JakeJohnMary"
+        array.join(" ") //returns "Jake John Mary"
+
+
+
