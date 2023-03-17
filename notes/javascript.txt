@@ -179,3 +179,22 @@ switch(condition) {
         //default things
         break;
 }
+
+Loops:
+-While Loop - executes a black of code while a certain condition is true
+while (condition) {
+body
+}
+-do while loop - executes a code black at least once and then again while a condition is true
+do {
+code
+} while (condition)
+- for loop - loops through code while a certain condition is true - x amount of times
+initialization and increment are optional
+for (initialization; condition; increment) {
+code
+}
+-Break and continue-
+break - exits the loop when a certain condition is met
+continue - skips one iteration of the loop when a certain condition is met
+
