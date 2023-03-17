@@ -198,3 +198,25 @@ code
 break - exits the loop when a certain condition is met
 continue - skips one iteration of the loop when a certain condition is met
 
+
+Arrays:
+-ordered list of items
+-denoted by [], separated by comas
+-arrays can contain multiple data types in the same array
+-arrays can contain arrays
+-arrays indices start at 0
+-items in an array can be accessed by arrayName[index no.]
+-the number of items in an array can be determimed by arrayName.length
+-if an array element that does not exist tries to be accessed, it will return undefined
+-forEach can be used as an aleternative to looping through an array using a for loop
+-for each contains a function
+-someArray.forEach(function(element, index, or array) {
+     // ...
+ })
+ -for each will be called for every item located in the array
+ -Ex:
+ var shapes = ['star', 'square', 'rectangle'];
+ shapes.forEach(function(shape){
+    console.log("here is a shape " + shape);
+ });
+
