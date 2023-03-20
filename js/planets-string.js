@@ -25,4 +25,11 @@
      * string, and <li> tags around each planet.
      */
 
+    var planetsStringWithBreaks = "Mercury<br>Venus<br>Earth<br>Mars<br>Jupiter<br>Saturn<br>Uranus<br>Neptune";
+    console.log(planetsStringWithBreaks);
+    //this could be useful if the string is getting used in html
+    var listOfPlanets = "<ul><li>Mercury</li><li>Venus</li><li>Earth</li><li>Mars</li><li>Jupiter</li><li>Saturn</li><li>Uranus</li><li>Neptune</li></ul>";
+    console.log(listOfPlanets);
+
+
 })();
