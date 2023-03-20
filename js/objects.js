@@ -81,6 +81,44 @@
      * > console.log(books[0].author.lastName) // "Adams"
      */
 
+    var books = [
+        {
+            title: "To Kill a Mockingbird", author: {
+                firstName: "Harper",
+                lastName: "Lee"
+            }
+        },
+        {
+            title: "Tuesdays with Morrie", author: {
+                firstName: "Mitch",
+                lastName: "Albom"
+            }
+        },
+        {
+            title: "Catch-22", author: {
+                firstName: "Joseph",
+                lastName: "Heller"
+            }
+        },
+        {
+            title: "Fahrenheit 451", author: {
+                firstName: "Ray",
+                lastName: "Bradbury"
+            }
+        },
+        {
+            title: "The Great Gatsby", author: {
+                firstName: "F. Scott",
+                lastName: "Fitzgerald"
+            }
+        }
+    ]
+
+    //tests
+    // console.log(books[0].title) // "To Kill a Mockingbird"
+    // console.log(books[0].author.firstName) // "Harper"
+    // console.log(books[0].author.lastName) // "Lee"
+
     /**
      * TODO:
      * Loop through the books array and output the following information about
