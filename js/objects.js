@@ -162,4 +162,29 @@
      *   `showBookInfo` function.
      */
 
+    console.log("\n\n******Bonus Section********\n\n")
+    function createBook(bookTitle, authorFirstName, authorLastName) {
+        return {title: bookTitle, author: {firstName: authorFirstName, lastName: authorLastName}}
+    }
+
+    var books2 = [
+        createBook("To Kill a Mockingbird", "Harper", "Lee"),
+        createBook("Tuesdays with Morrie", "Mitch", "Albom"),
+        createBook("Catch-22", "Joseph", "Heller"),
+        createBook("Fahrenheit 451", "Ray", "Bradbury"),
+        createBook("The Great Gatsby", "F. Scott", "Fitzgerald")
+    ]
+
+    function showBookInfo(book) {
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        console.log("---")
+    }
+
+    books2.forEach(function (book) {
+        console.log("Book #" + (books2.indexOf(book) + 1));
+        showBookInfo(book);
+    })
+
+
 })();
