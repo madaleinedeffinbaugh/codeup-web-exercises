@@ -275,5 +275,48 @@ Arrays:
         array.join() // returns "JakeJohnMary"
         array.join(" ") //returns "Jake John Mary"
 
+Objects:
+-groups data and functionality
+-data items are referred to as properties
+-functions are referred to as methods
+-JavaScript uses protypes - not classes
+-protoypes allow existing objects to be used as templates for new objects
+-EX
+    -creating a new object using the base prototype of Object
+    var car = new Object();
+    OR
+    var car = {}; //this is called literal notation
+-setting properties
+-uses either dot notation or array notation
+EX
+    car.make = "Ford";
+    var[model] = "Escape";
+-dot notation is prefered but array notation allows for anything to be used as a variable name, including spaces - but you should still only use normal javascript naming convention
+-properties are accessed the same way they are created
+-objects can be nested ; objects can contain other objects as well as other nested values
+-objects can have functions - called mehthods
+-creating methods is much like creating a variable - except the value is an anonymous function
+-this keyword
+    -more complex in javascript than other languages
+    -can refer to a different object based on how a function is called
+    -is also a reference to the current object
+    EX:
+        car.logMakeModel = function () {
+            console.log("Car make/model is: " + this.make + " " + this.model);
+        };
+
+Math Object:
+-all methods in the math object are static - meaning that you will always have access to the properties or methods and never have to declare a new math object
+-Math.random() - returns a floating-point, pseudo-random number in the range [0, 1] that is, from 0 (inclusive) up to but not including 1 (exclusive), which you can then scale to your desired range.
+-Math.round() - returns the value of a number rounded to the nearest integer
+-Math.floor() - returns the largest integer less than or equal to a number
+-Math.ceil() - returns the smallest integer greater than or equal to a number
+-Math.pow() - returns the base to the exponent power
+-Math.sqrt() - returns the square root of a number
+-constants
+    -Math.E - represents the base of natural logarithms, e, approx. 2.718
+    -Math.PI - represents the ratio of the circumference of a circle to its diameter, approx 3.14159 (pi)
+
+
 
 
