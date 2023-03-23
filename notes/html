@@ -1,0 +1,155 @@
+HTML:
+-HyperText Markup Language
+-its what the browser sees
+-hypertext is the text that is displayed on an electronic device that can be linked to other text which is accessible by the user
+-markup is the annotations that get added to a text that describe it further
+
+Bare bones:
+<!DOCTYPE html>  //this just tells the browser its an html file
+<html> //everything goes between these tags
+<head>
+//this is the info the user doesnt see
+//its info for the browser
+    <title></title> //contains the title at the top of the browser
+    <meta> //contains metadata, like charset, author, search keywords, and description
+</head>
+<body>
+//actual page content goes here
+</body>
+</html>
+
+Comments:
+<!-- comments go here -->
+
+HTML Elements:
+block-level elements - take up the entire space of its parent element, create new lines
+inline elements - occupies only the space bounded by the tags defining the element
+void elements - do not contain content, no closing tag
+<p></p> //paragraph element, block-level
+<h1><h/1> //header elements, go from h1 to h6, get smaller the bigger the number, block-level
+Attributes - additional data, such as name or id, seperated by spaces - <element attribute="bla bla">
+<br> //line break, creates a new line, void
+<hr> // same as <br> but also create a horizontal line across the screen
+<strong></strong> // draw attention to content, default of bold, inline elements
+<em></em> //same as <strong> except its default is italicized, inline element
+Lists - block level
+    -ordered lists <ol> creates an ordered list (1,2,3...A, B, C...etc)
+    - unordered lists <ul> create an unordered list, by default with bullet points
+    <li></li> creates each item in the list between the opening and closing tag of the list
+Anchors - link to another page or locations within current page, inline
+    <a href="link to somewhere">text to click on</a>
+    a target attribute will specify where a link is opened (like target="_blank" opens in new tab)
+    link to another element by using #elementname
+Images - display an image, inline, void
+    <img src="where to retrieve image" alt="text to display if image cant load">
+Tables - displays tabular data, consists of table rows
+    ex:
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>Iced Tea</td>
+            <td>$2.99</td>
+        </tr>
+        <tr>
+            <td>Hamburger and French Fries</td>
+            <td>$11.99</td>
+        </tr>
+    </table>
+
+HTML semantic elements to define different parts of layout:
+<header> //Defines a header for a document or a section.
+<nav> //Defines a container for navigation links.
+<main> //The main content area consists of content that is directly related to the central topic of a document
+<article> //Defines an independent self-contained article.
+<section> //Defines a section in a document.
+<aside> //Defines content aside from the content (like a sidebar).
+<footer> //Defines a footer for a document or a section.
+Ex:
+<body>
+    <header>
+        Generally an image of the product/logo with a call to action, like subscribing or signing up.
+    </header>
+    <nav>
+        Usually an unordered list with links to the main pages of the site or application
+    </nav>
+    <main>
+        <section class="pricing-plans">
+            Sometimes a description of the pricing plans for the product
+        </section>
+        <article>
+            The description of the product/service/application
+        </article>
+    </main>
+    <aside>
+        A secondary navigation element or ads are common in this place
+    </aside>
+    <footer>
+        Secondary links and copyright notices
+    </footer>
+</body>
+
+HTML Forms:
+<form></form> opening a form element
+method - attribute of form that refers to the HTTP method used to transmit form data
+GET method - request information, doesn't make changes to server, query is shown in URL ***
+POST method - make changes on server, data not added to URL but instead to the body of the HTTP request
+action - the location the data should be sent, if no action is specified, its sent to current URL
+EX:
+<form method="POST" action="https://request-inspector.glitch.me/">
+query strings - key value pairs, begins with ?, seperated with &
+submitting a form - either a input or a button of type submit  - button is better for CSS
+EX:
+<input type="submit">
+<button type="submit">Submit the form</button>
+
+Inputs:
+Text Inputs
+-Basic text input element is an input element with a type of text.
+-Can optionally specify a placeholder attribute.
+-Setting the attribute type to password will hide whatever the user enters.
+-Specifying a value attribute will pre-fill the input with the specified text.
+Text Areas
+-textarea elements can be used for longer text input.
+-Unlike inputss, a textarea is not a void element.
+-Uses the contents of the element instead of a value attribute.
+Checkboxes and Radio Buttons
+-input elements with a type of either radio or checkbox.
+    -radio only one option at a time
+    -checkbox can have mulitple options selected
+-Multiple elements relating to the same question should share a name attribute.
+-Commonly placed inside label elements.
+-Checkboxes are pre-selected by adding a checked attribute.
+-Radio buttons are pre-selected by adding a checked attribute.
+Selects
+-select elements create a drop-down of choices.
+-Consists of option elements for each choice.
+-The contents of an option element are what the user sees, and the value attribute is the data is submitted as part of the form.
+-The parent select element has a name attribute, and child option elements have value attributes.
+Ex:
+<select name="coffee_preference">
+    <option value="light">Light Roast</option>
+    <option value="dark">Dark Roast</option>
+    <option value="espresso">Espresso Blend</option>
+</select>
+Hidden Inputs - <input type="hidden">
+-Not shown to the user.
+-Used to submit data along with the form that the user does not specify, and does not modify.
+-Useful for the backend of our web applications.
+
+Common Attributes of Form Elements
+-Name and value
+    name - for input to be submitted - think like js and css side of things
+    id - thing of for reference by other elements
+-Disabled
+    -make an element non-interactive
+    only need the word disabled in the element tag, no assignment or anything special
+-Labels
+    -used to label form inputs
+    -use a <for> attribute to reference the element they are labeling
+    -it is common practice to wrap checkbox and radio buttons inside label so that the text can be clicked on
+
+
+
