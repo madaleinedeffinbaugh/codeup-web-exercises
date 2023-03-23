@@ -12,10 +12,10 @@
   <label for="password">Password</label>
   <input type="password" name="password" id="password" placeholder="Type password here">
 
-  <h3>Tell us About Yourself</h3>
-  <textarea name="bio" placeholder="Write a brief bio here..."></textarea>
+  <label for="bio"><h3>Tell us about yourself</h3></label>
+  <textarea id="bio" name="bio" placeholder="Write a brief bio here..."></textarea>
 
-  <h3>How did you hear about is?</h3>
+  <label><h3>How did you hear about us?</h3></label>
   <label>
     <input type=checkbox name="howDidYouHear" value="billboard">Billboard
   </label><br>
@@ -28,9 +28,18 @@
   <label>
   <input type="checkbox" name="howDidYouHear" value="other">Other
   </label>
-<br><br>
 
 
+  <label for="browser"><h3>What browser are you using?</h3></label>
+  <select id="browser" name="browser">
+    <option value="chrome">Chrome</option>
+    <option value="safari">Safari</option>
+    <option value="edge">Microsoft Edge</option>
+    <option value="firefox">Firefox</option>
+    <option value="tor">Tor</option>
+  </select>
+
+  <br><br>
   <input type="submit">
 
 </form>
