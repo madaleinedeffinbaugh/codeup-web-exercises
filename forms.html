@@ -5,43 +5,41 @@
     <title>Register With Us</title>
 </head>
 <body>
-<h1>Register With Us</h1>
-<form method="POST" action="https://request-inspector.glitch.me/">
-  <label for="email">Email</label>
-  <input type="text" name="email" id="email" placeholder="Please enter your email here:"><br>
-  <label for="password">Password</label>
-  <input type="password" name="password" id="password" placeholder="Type password here">
+  <h1>Register With Us</h1>
+  <form method="POST" action="https://request-inspector.glitch.me/">
+    <label for="email">Email</label>
+    <input type="text" name="email" id="email" placeholder="Please enter your email here:"><br>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" placeholder="Type password here">
 
-  <label for="bio"><h3>Tell us about yourself</h3></label>
-  <textarea id="bio" name="bio" placeholder="Write a brief bio here..."></textarea>
+    <label for="bio"><h3>Tell us about yourself</h3></label>
+    <textarea id="bio" name="bio" placeholder="Write a brief bio here..."></textarea>
 
-  <label><h3>How did you hear about us?</h3></label>
-  <label>
-    <input type=checkbox name="howDidYouHear" value="billboard">Billboard
-  </label><br>
-  <label>
-    <input type="checkbox" name="howDidYouHear" value="radio advertisement">Radio Advertisement
-  </label><br>
-<label>
-  <input type="checkbox" name="howDidYouHear" value="internet advertisement">Internet Advertisement
-</label><br>
-  <label>
-  <input type="checkbox" name="howDidYouHear" value="other">Other
-  </label>
+    <label><h3>How did you hear about us?</h3></label>
+    <label>
+      <input type=checkbox name="howDidYouHear" value="billboard">Billboard
+      </label><br>
+    <label>
+      <input type="checkbox" name="howDidYouHear" value="radio advertisement">Radio Advertisement
+    </label><br>
+    <label>
+      <input type="checkbox" name="howDidYouHear" value="internet advertisement">Internet Advertisement
+    </label><br>
+    <label>
+      <input type="checkbox" name="howDidYouHear" value="other">Other
+    </label>
 
+    <label for="browser"><h3>What browser are you using?</h3></label>
+    <select id="browser" name="browser">
+      <option value="chrome">Chrome</option>
+      <option value="safari">Safari</option>
+      <option value="edge">Microsoft Edge</option>
+      <option value="firefox">Firefox</option>
+      <option value="tor">Tor</option>
+    </select>
 
-  <label for="browser"><h3>What browser are you using?</h3></label>
-  <select id="browser" name="browser">
-    <option value="chrome">Chrome</option>
-    <option value="safari">Safari</option>
-    <option value="edge">Microsoft Edge</option>
-    <option value="firefox">Firefox</option>
-    <option value="tor">Tor</option>
-  </select>
-
-  <br><br>
-  <input type="submit">
-
-</form>
+    <br><br>
+    <button type="submit">Submit</button>
+  </form>
 </body>
 </html>
