@@ -1,0 +1,33 @@
+CSS
+-stands for cascading style sheets
+-specifies colors, fonts, layouts, and more
+-separates content from presentation
+
+Element style attribute
+-can be used inside a html element to individually add style
+-not the recommended practice
+EX: <h1 style="color:blue;text-decoration:underline;">Hello, CSS!</h1>
+
+Inline/Embedded Sheet
+-goes in header of html file
+-acts just like an external sheet
+-also not recommended
+EX:
+<head>
+    <title>CSS Test Page</title>
+    <style>
+        .fancy-header {
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+External Style Sheet
+-recommended version
+-connect with  <link rel="stylesheet" href="file path">
+
+Comments
+/* comment here */
+
+
