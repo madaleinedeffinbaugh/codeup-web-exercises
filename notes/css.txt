@@ -30,4 +30,70 @@ External Style Sheet
 Comments
 /* comment here */
 
+Basic Selectors:
+-style definition ex:
+    selector {
+        property: value;
+        property: value;
+    }
+-selectors can be elements, ids, or class
+-elements - use name of element
+-id - use # followed by name of ID
+-class - use . followed by name of the class
+-multiple selectors - separate with commas
+-you can combine multiple classes to a html element by separating them with a space
+-descendant selector
+    -applies style based on descendant relationship to a parent element
+    -parentSelector descendentSelector {
+            //style
+    }
+-direct child selector - only direct children will recieve style, use > instead of a space
+-combining selectors - make class applicable only to certain elements
+-EX:
+h1.fancy-header {
+    color: blue;
+}
+h2.fancy-header {
+    color: green;
+}
 
+Pseudo Classes:
+-specifies that a style should only be applied to a particular state of an element
+-EX:
+    /* unvisited link (:link) */
+    a:link {
+        color:red;
+    }
+
+    /* visited link (:visited) */
+    a:visited {
+        color:black;
+    }
+
+Specificity - the more specific a selector, the higher precedence, the more likely the style is applied
+
+Colors:
+-can be referenced by name or RGB - RGB is preferred
+-RGB #FFFFFF is white
+
+Properties and Values
+-color - sets foreground of element text content and text decorations.
+-text-decoration - for text formatting (like underline, line-through, etc)
+-text-align - aligns text within its parent block
+-text-indent - specifies how much indent in relation to the containing block elements box
+-font-family - prioritized list of font families, seperated by comma
+-font-style - allows italic or oblique faces to be selected within font-family
+-font-size
+    -may change the size of other items
+    -you can use pixels (px) or em - em is preferred if you want users to be able to make the font larger
+    EX:
+    element { font-size: 12px; }
+    element { font-size: 1em; }
+-font-weight - specifies weight or boldness
+
+Background Properties:
+-background-color - sets background color for an element using a color value or transparent
+-background-image - sets background image for element, successive stacking
+-background-repeat - specifies how images are repeated, on which axis, or not at all
+-list-style - shorthand property for setting list-style-type, list-style-image, and list-style-position
+-inheriting styles - specifies to take property from parent. allowed on every css property.
