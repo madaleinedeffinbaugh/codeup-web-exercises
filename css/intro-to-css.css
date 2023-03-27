@@ -1,0 +1,30 @@
+h1 {
+    color: green;
+}
+
+h4 {
+    color: red;
+}
+
+button {
+    font-size: 24px;
+    border: solid red;
+    border-radius: 25px;
+}
+
+.dottedBlue {
+    border: dotted blue;
+}
+
+.yellowBackground {
+    background-color: yellow;
+}
+
+li {
+    font-size: 30px;
+}
+
+form {
+    background-color: black;
+    color: white;
+}
