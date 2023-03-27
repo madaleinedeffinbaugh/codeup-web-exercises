@@ -15,7 +15,28 @@ body {
     background-image: url("/img/welcome-background.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: Fantasy, Papyrus;
+    font-family: 'Roboto Slab', serif;
+}
+
+.about-us {
+    background-color: lightgrey;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1%;
+}
+
+.about-us:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+ul, ol {
+    float: left;
+    width: 29%;
+    margin: 1%;
+    padding: 1%;
+    background-color: white;
 }
 
 ul {
@@ -23,14 +44,33 @@ ul {
     list-style-position: inside;
 }
 
-ul, ol {
-    float: left;
+ol {
+    list-style-position: inside;
+}
+
+.vision {
+    text-align: center;
 }
 
 table, td, tr {
     padding: 20px;
     border: solid black;
     font-size: 30px;
+    margin: 1% auto;
+}
+
+table>caption {
+    text-align: center;
+}
+
+footer {
+    float: right;
+}
+
+nav {
+    clear: right;
+    float: right;
+    margin-bottom: 2%;
 }
 
 a:link {
@@ -49,6 +89,5 @@ a:active {
     color:green;
 }
 
-.vision {
-    clear: left;
-}
+
+
