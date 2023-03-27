@@ -1,3 +1,54 @@
 .fancy-header {
     color: purple;
 }
+
+header {
+    text-align: center;
+}
+
+h1,h2,h3 {
+    text-decoration: underline;
+}
+
+body {
+    background-color: #CEFFFF;
+    background-image: url("/img/welcome-background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Fantasy, Papyrus;
+}
+
+ul {
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+ul, ol {
+    float: left;
+}
+
+table, td, tr {
+    padding: 20px;
+    border: solid black;
+    font-size: 30px;
+}
+
+a:link {
+    color:blue;
+}
+
+a:visited {
+    color:purple;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    color:green;
+}
+
+.vision {
+    clear: left;
+}
