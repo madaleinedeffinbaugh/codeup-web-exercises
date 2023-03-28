@@ -7,31 +7,49 @@ body, html {
 }
 
 .message {
-    background-color: #CEFFFF;
     border-radius: 5px;
     border: 1px solid #d2d2d2;
     margin: .65em .65em;
     padding: .6em;
 }
 
+:root {
+    --bg-info: #cddeff;
+    --text-info: #524da6;
+    --bg-success: #cff3da;
+    --text-success: #217946;
+    --bg-warning: #fcfbc9;
+    --text-warning: #857106;
+    --bg-error: #fad3d7;
+    --text-error: #821731;
+}
+
 .message-info {
-    background-color: #cddeff;
-    color: #524da6;
+    /*background-color: #cddeff;*/
+    /*color: #524da6;*/
+    background-color: var(--bg-info);
+    color: var(--text-info);
 }
 
 .message-success {
-    background-color: #cff3da;
-    color: #217946;
+    /*background-color: #cff3da;*/
+    /*color: #217946;*/
+    background-color: var(--bg-success);
+    color: var(--text-success);
 }
 
 .message-warning {
-    background-color: #fcfbc9;
-    color: #857106;
+    /*background-color: #fcfbc9;*/
+    /*color: #857106;*/
+    background-color: var(--bg-warning);
+    color: var(--text-warning);
 }
 
 .message-error {
-    background-color: #fad3d7;
-    color: #821731;
+    /*background-color: #fad3d7;*/
+    /*color: #821731;*/
+    background-color: var(--bg-error);
+    color: var(--text-error);
 }
 
 
