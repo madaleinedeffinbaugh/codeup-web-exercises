@@ -14,7 +14,7 @@ ul {
     font-family: "Work Sans";
 }
 
-ul a {
+a {
     text-decoration: none;
     color: black;
     display: inline-block;
@@ -29,16 +29,27 @@ ul a:hover {
     font-size: 3em;
     padding: .2em 0;
     font-family: "Montserrat";
+    flex-basis: 60%;
+    text-align: center;
+
 }
+
 
 .container {
     display: flex;
     align-items: center;
 }
 
-li:nth-child(5) {
-margin: 0 auto;
+.list_one {
+    display: flex;
+    flex-basis: 20%;
+
 }
 
+.list_two {
+    display: flex;
+    flex-basis: 20%;
+    justify-content: flex-end;
+}
 
 
