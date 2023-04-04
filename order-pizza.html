@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
+<!--need to change color of nav bar-->
+
 <!--NavBar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 <!--    container-->
@@ -38,9 +40,160 @@
 
 <!-- Main Container-->
 <div class="container">
+    <!--top pizza photo-->
     <div class="jumbotron d-flex align-items-center">
         <div class="opacity-75 bg-light flex-fill text-center display-4">Welcome to Pizza World!</div>
     </div>
+
+    <h2>Build your own pizza!</h2>
+
+    <!--tabs -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="size-tab" data-bs-toggle="tab" data-bs-target="#size" type="button" role="tab" aria-controls="size" aria-selected="true">Size and Crust</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="cheese-tab" data-bs-toggle="tab" data-bs-target="#cheese" type="button" role="tab" aria-controls="cheese" aria-selected="false">Cheese and Sauce</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="toppins-tab" data-bs-toggle="tab" data-bs-target="#toppings" type="button" role="tab" aria-controls="toppings" aria-selected="false">Toppings</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <!--size and crust-->
+        <div class="tab-pane fade show active" id="size" role="tabpanel" aria-labelledby="size-tab">
+            <!--Title-->
+            <div>Choose Size and Crust</div>
+            <!--hand tossed-->
+            <div>
+                <div class="row">
+                    <div class="col">
+                        Hand Tossed
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        Garlic seasoned crust with a rich, buttery taste
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input class="form-check-input" type="radio" name="pizza-size" id="tossed-small">
+                        <label class="form-check-label" for="tossed-small">
+                            Small
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input class="form-check-input" type="radio" name="pizza-size" id="tossed-medium">
+                        <label class="form-check-label" for="tossed-medium">
+                            medium
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!--crispy thing-->
+            <div>
+                <div class="row">
+                    <div class="col">
+                        Crispy Thin
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        Thin enough for optimum crispy to crunchy ratio.
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input class="form-check-input" type="radio" name="pizza-size" id="thin-medium">
+                        <label class="form-check-label" for="thin-medium">
+                            Medium
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input class="form-check-input" type="radio" name="pizza-size" id="thin-large">
+                        <label class="form-check-label" for="thin-large">
+                            large
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!--Footer Nav-->
+            <div>
+                <button>Next Step ></button>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="cheese" role="tabpanel" aria-labelledby="cheese-tab">
+            <!--Title-->
+            <div>Choose Cheese and Sauce</div>
+            <!--Cheese-->
+            <div>
+                <div class="row">
+                    <div class="col">
+                        Cheese
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        How much?
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <select name="cheese-amount" id="cheese-amount">
+                            <option value="light">Light</option>
+                            <option value="normal" selected>Normal</option>
+                            <option value="heavy">Heavy</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--Sauce-->
+            <div>
+                <div class="row">
+                    <div class="col">
+                        Sauce
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        What Type
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <select name="sauce-type" id="sauce-type">
+                            <option value="light">Light</option>
+                            <option value="tomato" selected>Needs options</option>
+                            <option value="heavy">Heavy</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        How Much?
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <select name="sauce-amount" id="sauce-amount">
+                            <option value="light">Light</option>
+                            <option value="normal" selected>Needs options</option>
+                            <option value="heavy">Heavy</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--Footer-->
+
+        </div>
+        <div class="tab-pane fade" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">...</div>
+    </div>
+
 </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
