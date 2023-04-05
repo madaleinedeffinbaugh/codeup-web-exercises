@@ -48,7 +48,6 @@
     </div>
     <!--Title-->
     <h2>Build your own pizza!</h2>
-
     <!--Tabs-->
     <!--Tab buttons-->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -71,174 +70,101 @@
                 <div class="card-header bg-primary text-white">
                     Choose Size and Crust
                 </div>
+                <!--hand tossed or thin-->
                 <div class="card-body">
                     <!--hand tossed card-->
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <div class="card-header">
                             Hand Tossed
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
+                            <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="radio" name="pizza-size" id="tossed-small">
+                                <label class="form-check-label" for="tossed-small">Small (10")</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="radio" name="pizza-size" id="tossed-medium">
+                                <label class="form-check-label" for="tossed-medium">Medium (12")</label>
+                            </li>
                         </ul>
                     </div>
                     <!--crispy thin card-->
-                    <div class="card mt-4" style="width: 18rem;">
+                    <div class="card mt-4">
                         <div class="card-header">
                             Crispy Thin
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
+                            <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="radio" name="pizza-size" id="thin-medium">
+                                <label class="form-check-label" for="thin-medium">Medium (12")</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input" type="radio" name="pizza-size" id="thin-large">
+                                <label class="form-check-label" for="thin-large">Large (14")</label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--footer with button (non-functional)-->
+                <div class="card-footer p-2 d-flex justify-content-end">
+                    <button class="btn btn-primary">Next Step ></button>
+                </div>
+            </div>
+        </div>
+        <!--Cheese and Sauce-->
+        <div class="tab-pane fade border" id="cheese" role="tabpanel" aria-labelledby="cheese-tab">
+            <!--main card-->
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    Choose Size and Crust
+                </div>
+                <div class="card-body">
+                    <!--cheese card-->
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-header bg-primary text-white">
+                            Cheese
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">How Much?</li>
+                            <li class="list-group-item">
+                                <select name="cheese-amount" id="cheese-amount" class="form-select p-1 ps-2">
+                                    <option value="light">Light</option>
+                                    <option value="normal" selected>Normal</option>
+                                    <option value="heavy">Heavy</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--sauce card-->
+                    <div class="card mt-4" style="width: 18rem;">
+                        <div class="card-header">
+                            Sauce
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">What Type?</li>
+                            <li class="list-group-item">
+                                <select name="sauce-type" id="sauce-type" class="form-select p-1 ps-2">
+                                    <option value="white-garlic-sauce">White Garlic Sauce</option>
+                                    <option value="tomato" selected>Tomato</option>
+                                    <option value="pesto">Pesto</option>
+                                    <option value="garlic-ranch">Garlic Ranch</option>
+                                </select>
+                            </li>
+                            <li class="list-group-item">How Much?</li>
+                            <li class="list-group-item">
+                                <select name="cheese-amount" id="sauce-amount" class="form-select p-1 ps-2">
+                                    <option value="light">Light</option>
+                                    <option value="normal" selected>Normal</option>
+                                    <option value="heavy">Heavy</option>
+                                </select>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="card-footer">
                     button here
-                </div>
-            </div>
-
-
-
-
-
-
-
-<!--            &lt;!&ndash;Title&ndash;&gt;-->
-<!--            <div class="bg-primary text-white p-2">Choose Size and Crust</div>-->
-<!--            &lt;!&ndash;hand tossed&ndash;&gt;-->
-<!--            <div class="m-3 mx-4">-->
-<!--                <div class="row">-->
-<!--                    <div class="col bg-light border p-1 ps-2">-->
-<!--                        Hand Tossed-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="row">-->
-<!--                    <div class="col p-1 ps-2 border">-->
-<!--                        Garlic seasoned crust with a rich, buttery taste-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="row">-->
-<!--                    <div class="col p-1 ps-2 border">-->
-<!--                        <input class="form-check-input" type="radio" name="pizza-size" id="tossed-small">-->
-<!--                        <label class="form-check-label" for="tossed-small">-->
-<!--                            Small (10")-->
-<!--                        </label>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="row">-->
-<!--                    <div class="col p-1 ps-2 border">-->
-<!--                        <input class="form-check-input" type="radio" name="pizza-size" id="tossed-medium">-->
-<!--                        <label class="form-check-label" for="tossed-medium">-->
-<!--                            Medium (12")-->
-<!--                        </label>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash;crispy thing&ndash;&gt;-->
-<!--            <div class="m-3 mx-4">-->
-<!--                <div class="row">-->
-<!--                    <div class="col bg-light p-1 ps-2 border">-->
-<!--                        Crispy Thin-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="row">-->
-<!--                    <div class="col p-1 ps-2 border">-->
-<!--                        Thin enough for optimum crispy to crunchy ratio.-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="row">-->
-<!--                    <div class="col p-1 ps-2 border">-->
-<!--                        <input class="form-check-input" type="radio" name="pizza-size" id="thin-medium">-->
-<!--                        <label class="form-check-label" for="thin-medium">-->
-<!--                            Medium (12")-->
-<!--                        </label>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="row">-->
-<!--                    <div class="col p-1 ps-2 border">-->
-<!--                        <input class="form-check-input" type="radio" name="pizza-size" id="thin-large">-->
-<!--                        <label class="form-check-label" for="thin-large">-->
-<!--                            Large (14")-->
-<!--                        </label>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            &lt;!&ndash;Footer Nav&ndash;&gt;-->
-<!--            <div class="bg-light border p-2 d-flex justify-content-end">-->
-<!--                <button class="btn btn-primary">Next Step ></button>-->
-<!--            </div>-->
-        </div>
-        <!--Cheese and Sauce-->
-        <div class="tab-pane fade border" id="cheese" role="tabpanel" aria-labelledby="cheese-tab">
-            <!--Title-->
-            <div class="bg-primary text-white p-2">Choose Cheese and Sauce</div>
-            <!--Cheese-->
-            <div class="m-3 mx-4">
-                <div class="row">
-                    <div class="col p-1 ps-2 border bg-light">
-                        Cheese
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col p-1 ps-2 border">
-                        How much?
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col p-1 ps-2 border">
-                        <select name="cheese-amount" id="cheese-amount" class="form-select p-1 ps-2">
-                            <option value="light">Light</option>
-                            <option value="normal" selected>Normal</option>
-                            <option value="heavy">Heavy</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <!--Sauce-->
-            <div class="m-3 mx-4">
-                <div class="row">
-                    <div class="col p-1 ps-2 border bg-light">
-                        Sauce
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col p-1 ps-2 border">
-                        What Type
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col p-1 ps-2 border">
-                        <select name="sauce-type" id="sauce-type" class="form-select p-1 ps-2">
-                            <option value="white-garlic-sauce">White Garlic Sauce</option>
-                            <option value="tomato" selected>Tomato</option>
-                            <option value="pesto">Pesto</option>
-                            <option value="garlic-ranch">Garlic Ranch</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col p-1 ps-2 border">
-                        How Much?
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col p-1 ps-2 border">
-                        <select name="sauce-amount" id="sauce-amount" class="form-select p-1 ps-2">
-                            <option value="light">Light</option>
-                            <option value="normal" selected>Normal</option>
-                            <option value="heavy">Heavy</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <!--Footer-->
-            <div class="bg-light border p-2 d-flex justify-content-end">
-                <div class="btn-group">
-                    <button class="btn btn-primary">< Previous</button>
-                    <button class="btn btn-primary">Next ></button>
                 </div>
             </div>
         </div>
