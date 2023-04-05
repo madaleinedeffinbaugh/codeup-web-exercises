@@ -43,23 +43,23 @@
 <!-- Main Container-->
 <div class="container">
     <!--top pizza photo-->
-    <div class="jumbotron d-flex align-items-center">
+    <div class="jumbotron d-md-flex d-none d-md-block align-items-md-center">
         <div class="opacity-75 bg-light flex-fill text-center display-4">Welcome to Pizza World!</div>
     </div>
-
+    <!--Title-->
     <h2>Build your own pizza!</h2>
 
-    <!--tabs -->
+    <!--Tabs-->
     <!--Tab buttons-->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="size-tab" data-bs-toggle="tab" data-bs-target="#size" type="button" role="tab" aria-controls="size" aria-selected="true"><small class=" rounded-circle bg-secondary p-1 px-2 text-white me-1">1</small>Size and Crust</button>
+            <button class="nav-link active" id="size-tab" data-bs-toggle="tab" data-bs-target="#size" type="button" role="tab" aria-controls="size" aria-selected="true"><span class="badge bg-secondary rounded-pill">1</span>Size and Crust</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="cheese-tab" data-bs-toggle="tab" data-bs-target="#cheese" type="button" role="tab" aria-controls="cheese" aria-selected="false"><small class=" rounded-circle bg-secondary p-1 px-2 text-white me-1">2</small>Cheese and Sauce</button>
+            <button class="nav-link" id="cheese-tab" data-bs-toggle="tab" data-bs-target="#cheese" type="button" role="tab" aria-controls="cheese" aria-selected="false"><span class="badge bg-secondary rounded-pill">2</span>Cheese and Sauce</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="toppings-tab" data-bs-toggle="tab" data-bs-target="#toppings" type="button" role="tab" aria-controls="toppings" aria-selected="false"><small class=" rounded-circle bg-secondary p-1 px-2 text-white me-1">3</small>Toppings</button>
+            <button class="nav-link" id="toppings-tab" data-bs-toggle="tab" data-bs-target="#toppings" type="button" role="tab" aria-controls="toppings" aria-selected="false"><span class="badge bg-secondary rounded-pill">3</span>Toppings</button>
         </li>
     </ul>
     <!--Tab content-->
@@ -172,9 +172,10 @@
                 <div class="row">
                     <div class="col p-1 ps-2 border">
                         <select name="sauce-type" id="sauce-type" class="form-select p-1 ps-2">
-                            <option value="light">Light</option>
-                            <option value="tomato" selected>Needs options</option>
-                            <option value="heavy">Heavy</option>
+                            <option value="white-garlic-sauce">White Garlic Sauce</option>
+                            <option value="tomato" selected>Tomato</option>
+                            <option value="pesto">Pesto</option>
+                            <option value="garlic-ranch">Garlic Ranch</option>
                         </select>
                     </div>
                 </div>
@@ -187,7 +188,7 @@
                     <div class="col p-1 ps-2 border">
                         <select name="sauce-amount" id="sauce-amount" class="form-select p-1 ps-2">
                             <option value="light">Light</option>
-                            <option value="normal" selected>Needs options</option>
+                            <option value="normal" selected>Normal</option>
                             <option value="heavy">Heavy</option>
                         </select>
                     </div>
