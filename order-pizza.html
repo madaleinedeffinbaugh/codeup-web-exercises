@@ -122,8 +122,8 @@
                 </div>
                 <div class="card-body">
                     <!--cheese card-->
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-header bg-primary text-white">
+                    <div class="card">
+                        <div class="card-header">
                             Cheese
                         </div>
                         <ul class="list-group list-group-flush">
@@ -132,13 +132,14 @@
                                 <select name="cheese-amount" id="cheese-amount" class="form-select p-1 ps-2">
                                     <option value="light">Light</option>
                                     <option value="normal" selected>Normal</option>
-                                    <option value="heavy">Heavy</option>
+                                    <option value="extra">Extra</option>
+                                    <option value="double">Double</option>
                                 </select>
                             </li>
                         </ul>
                     </div>
                     <!--sauce card-->
-                    <div class="card mt-4" style="width: 18rem;">
+                    <div class="card mt-4">
                         <div class="card-header">
                             Sauce
                         </div>
@@ -146,10 +147,10 @@
                             <li class="list-group-item">What Type?</li>
                             <li class="list-group-item">
                                 <select name="sauce-type" id="sauce-type" class="form-select p-1 ps-2">
-                                    <option value="white-garlic-sauce">White Garlic Sauce</option>
+                                    <option value="marinara">Marinara</option>
                                     <option value="tomato" selected>Tomato</option>
-                                    <option value="pesto">Pesto</option>
-                                    <option value="garlic-ranch">Garlic Ranch</option>
+                                    <option value="bbq">BBQ</option>
+                                    <option value="alfredo">Alfredo</option>
                                 </select>
                             </li>
                             <li class="list-group-item">How Much?</li>
@@ -157,14 +158,19 @@
                                 <select name="cheese-amount" id="sauce-amount" class="form-select p-1 ps-2">
                                     <option value="light">Light</option>
                                     <option value="normal" selected>Normal</option>
-                                    <option value="heavy">Heavy</option>
+                                    <option value="extra">Extra</option>
+                                    <option value="double">Double</option>
                                 </select>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="card-footer">
-                    button here
+                <!--footer with button (non-functional)-->
+                <div class="card-footer p-2 d-flex justify-content-end">
+                    <div class="btn-group">
+                        <button class="btn btn-primary">< Previous</button>
+                        <button class="btn btn-primary">Next Step ></button>
+                    </div>
                 </div>
             </div>
         </div>
