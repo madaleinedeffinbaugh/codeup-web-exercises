@@ -11,15 +11,15 @@
     <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
-<!--need to change color of nav bar-->
+
 <!--next buttons need functionality-->
-<!--tabs need color change of text-->
+
 
 <!--NavBar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
 <!--    container-->
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Pizza World</a>
+        <a class="navbar-brand" href="#" id="logo">Pizza World</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -59,7 +59,7 @@
             <button class="nav-link" id="cheese-tab" data-bs-toggle="tab" data-bs-target="#cheese" type="button" role="tab" aria-controls="cheese" aria-selected="false"><small class=" rounded-circle bg-secondary p-1 px-2 text-white me-1">2</small>Cheese and Sauce</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="toppins-tab" data-bs-toggle="tab" data-bs-target="#toppings" type="button" role="tab" aria-controls="toppings" aria-selected="false"><small class=" rounded-circle bg-secondary p-1 px-2 text-white me-1">3</small>Toppings</button>
+            <button class="nav-link" id="toppings-tab" data-bs-toggle="tab" data-bs-target="#toppings" type="button" role="tab" aria-controls="toppings" aria-selected="false"><small class=" rounded-circle bg-secondary p-1 px-2 text-white me-1">3</small>Toppings</button>
         </li>
     </ul>
     <!--Tab content-->
@@ -127,8 +127,8 @@
                 </div>
             </div>
             <!--Footer Nav-->
-            <div class="bg-light border p-2">
-                <button>Next Step ></button>
+            <div class="bg-light border p-2 d-flex justify-content-end">
+                <button class="btn btn-primary">Next Step ></button>
             </div>
         </div>
         <!--Cheese and Sauce-->
@@ -194,10 +194,11 @@
                 </div>
             </div>
             <!--Footer-->
-            <div class="bg-light border p-2">
-                <!--this will be a button group-->
-                <button>Previous</button>
-                <button>Next ></button>
+            <div class="bg-light border p-2 d-flex justify-content-end">
+                <div class="btn-group">
+                    <button class="btn btn-primary">< Previous</button>
+                    <button class="btn btn-primary">Next ></button>
+                </div>
             </div>
         </div>
         <!--Toppings-->
@@ -302,8 +303,8 @@
 
             </div>
             <!--Footer-->
-            <div class="bg-light border p-2">
-                <button>Checkout</button>
+            <div class="bg-light border p-2 d-flex justify-content-end">
+                <button class="btn btn-primary">Checkout<i class="fa-sharp fa-solid fa-cart-shopping ps-1"></i></button>
             </div>
         </div>
     </div>
