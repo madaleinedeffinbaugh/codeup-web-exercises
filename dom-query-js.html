@@ -39,7 +39,15 @@
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
         var btnMain = document.getElementById("btn-main");
         btnMain.addEventListener('click', function() {
-            mainHeader.innerHTML = "Javascript is Cool";
+            var currentHeader = mainHeader.innerHTML;
+            if(currentHeader == 'Hello World!') {
+                mainHeader.innerHTML = "Javascript is Cool";
+                btnMain.innerHTML = "Change Main Header Back to Original"
+            }
+            if(currentHeader == "Javascript is Cool") {
+                mainHeader.innerHTML = "Hello World!";
+                btnMain.innerHTML = "Change Main Header"
+            }
         })
 
         // TODO: Uncomment the next line and get the sub header element by id
@@ -48,7 +56,15 @@
         // TODO: Set the text color of subHeader to blue
         var btnSubHeader = document.getElementById('btn-sub-header')
         btnSubHeader.addEventListener('click', function() {
-            subHeader.style.color = 'blue';
+            var currentStyle = subHeader.getAttribute('style');
+            if(currentStyle != 'color: blue;') {
+                subHeader.style.color = 'blue';
+                btnSubHeader.innerHTML = "Change Color of Sub-Header Back to Original";
+            }
+            if(currentStyle == 'color: blue;') {
+                subHeader.style.color = 'black';
+                btnSubHeader.innerHTML = "Change Color of Sub-Header";
+            }
         })
 
 
@@ -59,7 +75,12 @@
         function changeToGrey() {
             for(var i = 0; i < listItems.length; i++) {
                 if(i % 2 != 0) {
-                    listItems[i].style.color = 'grey';
+                    var currentColors = listItems[i].getAttribute('style');
+                    if(currentColors != 'color: grey;') {
+                        listItems[i].style.color = 'grey'
+                    } else {
+                        listItems[i].style.color = 'black';
+                    }
                 }
             }
         }
@@ -68,7 +89,12 @@
         function changetoBlue() {
             for(var i = 0; i < listItems.length; i++) {
                 if(listItems[i].getAttribute('data-dbid') == 1) {
-                    listItems[i].style.color = 'blue'
+                    var currentColor = listItems[i].getAttribute('style');
+                    if(currentColor != 'color: blue;') {
+                        listItems[i].style.color = 'blue'
+                    } else {
+                        listItems[i].style.color = 'black';
+                    }
                 }
             }
         }
@@ -80,16 +106,33 @@
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
         var btnSubPara = document.getElementById('btn-sub-para');
         btnSubPara.addEventListener('click', function() {
-            subParagraphs[0].innerHTML = 'Mission Accomplished!';
+            var currentPara = subParagraphs[0].innerHTML;
+            if(currentPara != 'Mission Accomplished!') {
+                subParagraphs[0].innerHTML = 'Mission Accomplished!';
+                btnSubPara.innerHTML = "Change Sub-Paragraph Back to Original"
+            } else {
+                subParagraphs[0].innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+                btnSubPara.innerHTML = "Change Sub-Paragraph"
+            }
         })
 
 
     //     changing list items through button
         var btnList = document.getElementById('btn-list');
         btnList.addEventListener('click', function() {
-            changetoBlue();
-            changeToGrey();
+            var currentHTML = btnList.innerHTML;
+            if(currentHTML != "Change Color of List Items") {
+                changetoBlue();
+                changeToGrey();
+                btnList.innerHTML = "Change Color of List Items";
+            } else {
+                changetoBlue();
+                changeToGrey();
+                btnList.innerHTML = "Change Color of List Items Back to Original";
+            }
         })
+
+
     })();
 </script>
 </body>
