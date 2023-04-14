@@ -7,6 +7,9 @@
 </head>
 <body>
 
+<button id="changeAll" class="btn btn-secondary m-3">Change All</button>
+<button id="revertAll" class="btn btn-secondary m-3">Revert All</button>
+
 <h1 id="main-header">Hello World!</h1>
 <button id="btn-main" class="btn btn-secondary m-3 mt-2">Change Main Header</button>
 <ul>
@@ -132,6 +135,62 @@
             }
         })
 
+//     change or revert all
+        var changeAll = document.getElementById('changeAll');
+        var revertAll = document.getElementById('revertAll');
+
+        changeAll.addEventListener('click', change);
+        revertAll.addEventListener('click', revert);
+
+        function change() {
+            mainHeader.innerHTML = "Javascript is Cool";
+            btnMain.innerHTML = "Change Main Header Back to Original"
+
+            subHeader.style.color = 'blue';
+            btnSubHeader.innerHTML = "Change Color of Sub-Header Back to Original";
+
+            for(var i = 0; i < listItems.length; i++) {
+                if(i % 2 != 0) {
+                    listItems[i].style.color = 'grey'
+                }
+            }
+
+            for(var i = 0; i < listItems.length; i++) {
+                if(listItems[i].getAttribute('data-dbid') == 1) {
+                    listItems[i].style.color = 'blue'
+                }
+            }
+
+            btnList.innerHTML = "Change Color of List Items Back to Original";
+
+            subParagraphs[0].innerHTML = 'Mission Accomplished!';
+            btnSubPara.innerHTML = "Change Sub-Paragraph Back to Original"
+        }
+
+        function revert() {
+            mainHeader.innerHTML = "Hello World!";
+            btnMain.innerHTML = "Change Main Header"
+
+            subHeader.style.color = 'black';
+            btnSubHeader.innerHTML = "Change Color of Sub-Header";
+
+            for(var i = 0; i < listItems.length; i++) {
+                if(i % 2 != 0) {
+                    listItems[i].style.color = 'black'
+                }
+            }
+
+            for(var i = 0; i < listItems.length; i++) {
+                if(listItems[i].getAttribute('data-dbid') == 1) {
+                    listItems[i].style.color = 'black'
+                }
+            }
+
+            btnList.innerHTML = "Change Color of List Items";
+
+            subParagraphs[0].innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+            btnSubPara.innerHTML = "Change Sub-Paragraph"
+        }
 
     })();
 </script>
