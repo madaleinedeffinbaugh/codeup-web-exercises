@@ -1,3 +1,6 @@
+"use strict";
+
+(function(){
 //Create a while loop that uses console.log() to create the output shown below.
 // 2
 // 4
@@ -39,6 +42,8 @@ do {
     }
 
 } while (conesToSell > 0);
+
+})();
 
 
 

@@ -1,4 +1,6 @@
 "use strict";
+(function () {
+
 //Exercise hello message on console log
 console.log("Hello from external JavaScript");
 
@@ -65,3 +67,4 @@ var offerApplied = (numItemsBought > 2 || premiumMember) && !offerExpired;
 //informing the user if the offer was applied
 alert("Offer Applied: " + offerApplied);
 
+})();

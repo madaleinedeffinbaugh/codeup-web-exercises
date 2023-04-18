@@ -18,6 +18,8 @@
 // Here is an odd number: 47
 // Here is an odd number: 49
 
+"use strict";
+
 
 var userInput;
 var validInput = false;
@@ -37,7 +39,7 @@ for (var i = 0; i < 50; i++) {
             console.log("Yikes! Skipping number: " + i);
             continue;
         }
-        console.log("Here is an add number: " + i);
+        console.log("Here is an odd number: " + i);
     }
 }
 
