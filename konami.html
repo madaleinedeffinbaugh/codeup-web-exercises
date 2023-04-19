@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+  "use strict";
+
+  (function() {
+
+    var testString = "";
+    $(document).keyup(function(event){
+      testString += event.keyCode;
+      // console.log(event.keyCode);
+      // console.log(testString);
+      if(testString == "3838404037393739666513") {
+        $("body").css("background-color", "skyblue");
+        $("body").append("<h1>HORAY!!!</h1>");
+        alert("You have added 30 lives!");
+      };
+    });
+
+  }());
+
+
+</script>
+</body>
+</html>
