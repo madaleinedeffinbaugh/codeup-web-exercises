@@ -24,6 +24,8 @@
 <script>
     "use strict";
 
+    (function(){
+
     // code from introduction exercise
     // $(function() {
     //     alert('DOM has finished loading');
@@ -39,10 +41,15 @@
 
     // selectors exercise 3
     $('li').css('font-size', '20px');
-    $('h1').css('background-color', 'yellow');
-    $('p').css('background-color', 'yellow');
-    $('li').css('background-color', 'yellow');
+    // $('h1').css('background-color', 'yellow');
+    // $('p').css('background-color', 'yellow');
+    // $('li').css('background-color', 'yellow');
     alert($('h1').text());
+
+    // selectors exercise 4
+    $('li,h1,p').css('background-color', 'yellow');
+
+    }());
 
 
 </script>
