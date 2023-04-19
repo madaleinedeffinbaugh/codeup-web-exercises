@@ -26,28 +26,41 @@
 
     (function(){
 
-    // code from introduction exercise
-    // $(function() {
-    //     alert('DOM has finished loading');
-    // })
+        // code from introduction exercise
+        // $(function() {
+        //     alert('DOM has finished loading');
+        // })
 
-    // selectors exercise 1
-    // var grabbingById = $('#myDiv').html(); will return the tags and comments inside
-    // var grabbingById = $('#myDiv').text();
-    // alert(grabbingById);
+        // selectors exercise 1
+        // var grabbingById = $('#myDiv').html(); will return everything inside including the tags and comments
+        // var grabbingById = $('#myDiv').text(); will return just the contents, text can be used to reassign by passing value inside parenthesis
+        // alert(grabbingById);
 
-    //selectors exercise 2
-    // $('.codeup').css('border', '1px solid red');
+        //selectors exercise 2
+        // $('.codeup').css('border', '1px solid red');
 
-    // selectors exercise 3
-    $('li').css('font-size', '20px');
-    // $('h1').css('background-color', 'yellow');
-    // $('p').css('background-color', 'yellow');
-    // $('li').css('background-color', 'yellow');
-    alert($('h1').text());
+        // selectors exercise 3
+        // $('li').css('font-size', '20px');
+        // $('h1').css('background-color', 'yellow');
+        // $('p').css('background-color', 'yellow');
+        // $('li').css('background-color', 'yellow');
+        // alert($('h1').text());
 
-    // selectors exercise 4
-    $('li,h1,p').css('background-color', 'yellow');
+        // selectors exercise 4
+        // $('li,h1,p').css('background-color', 'yellow');
+
+        //mouse events exercise
+        $("h1").click(function() {
+            $("h1").css("background-color", "skyblue");
+        });
+        $("p").dblclick(function() {
+            $("p").css("font-size", "18px");
+        });
+        $("li").hover(function(){
+            $("li").css("color", "red");
+        });
+
+
 
     }());
 
