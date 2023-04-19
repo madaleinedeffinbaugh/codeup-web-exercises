@@ -5,15 +5,36 @@
     <title>JQuery</title>
 </head>
 <body>
+<h1>Welcome to my page</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus beatae doloremque eius, error eveniet exercitationem harum ipsum nobis nulla quo.</p>
+<h4>This is a list</h4>
+<ul>
+    <li>item one</li>
+    <li>item two</li>
+    <li>item three</li>
+</ul>
+<div id="myDiv">
+    This is a div, hooray
+    <span>span</span>
+    <!--comment-->
+</div>
 
 <!--jquery-->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
     "use strict";
 
-    $(function() {
-        alert('DOM has finished loading');
-    })
+    // code from introduction exercise
+    // $(function() {
+    //     alert('DOM has finished loading');
+    // })
+
+    // selectors exercise 1
+    // var grabbingById = $('#myDiv').html(); will return the tags and comments inside
+    var grabbingById = $('#myDiv').text();
+    alert(grabbingById);
+
+
 </script>
 </body>
 </html>
