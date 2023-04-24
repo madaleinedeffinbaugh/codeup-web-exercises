@@ -139,6 +139,10 @@ h4 {
     width: 20px;
     color: transparent;
 }
+/*used for testing correct functionality of the clears*/
+/*.mine {*/
+/*    background-color: red !important;*/
+/*}*/
 .mine-show {
     background-color: red;
     background-image: url("../img/bomb.png");

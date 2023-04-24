@@ -474,100 +474,39 @@
         return count + 1;
     }
 
-    //the next nine functions are used to clear the surrounding area when a blank space is clicked on
     function clearArea(iteration) {
         var selector = ".wrapper div:nth-child(" + iteration + ")";
+        var nextLeft = ".wrapper div:nth-child(" + (iteration - 1) + ")";
+        var nextRight = ".wrapper div:nth-child(" + (iteration + 1) + ")";
+        var nextAbove = ".wrapper div:nth-child(" + (iteration - 15) + ")";
+        var nextBelow = ".wrapper div:nth-child(" + (iteration + 15) + ")";
+        var nextAboveRight = ".wrapper div:nth-child(" + (iteration - 14) + ")";
+        var nextBelowRight = ".wrapper div:nth-child(" + (iteration + 16) + ")";
+        var nextAboveLeft = ".wrapper div:nth-child(" + (iteration - 16) + ")";
+        var nextBelowLeft = ".wrapper div:nth-child(" + (iteration + 14) + ")";
         $(selector).addClass('show');
         $(selector).removeClass("flagged");
-        clearLeft(iteration);
-        clearRight(iteration);
-        clearAbove(iteration);
-        clearBelow(iteration);
-        clearAboveRight(iteration);
-        clearAboveLeft(iteration);
-        clearBelowLeft(iteration);
-        clearBelowRight(iteration);
+
+        clearDirection(iteration, specialPrevs, nextLeft,-1);
+        clearDirection(iteration, specialNexts, nextRight,1);
+        clearDirection(iteration, specialAbove, nextAbove,-15);
+        clearDirection(iteration, specialBelow, nextBelow, +15);
+        clearDirection(iteration, specialAboveRight, nextAboveRight, -14);
+        clearDirection(iteration, specialBelowRight, nextBelowRight, 16);
+        clearDirection(iteration, specialAboveLeft, nextAboveLeft, -16);
+        clearDirection(iteration, specialBelowLeft,nextBelowLeft, 14)
     }
 
-    function clearLeft(iteration) {
-        var nextSelector = ".wrapper div:nth-child(" + (iteration - 1) + ")";
-        if ($(nextSelector).text() != "" && !specialPrevs.includes(iteration)) {
+    function clearDirection(iteration, exclusiveArray,nextSelector,increment) {
+        // var nextSelector = ".wrapper div:nth-child(" + (iteration + 1) + ")";
+        if ($(nextSelector).text() != "" && !exclusiveArray.includes(iteration)) {
             $(nextSelector).addClass('show');
             $(nextSelector).removeClass("flagged");
-        } else if (!specialPrevs.includes(iteration) && $(nextSelector).text() == "" && !$(nextSelector).hasClass('show')) {
-            clearArea(iteration - 1);
+        } else if (!exclusiveArray.includes(iteration) && $(nextSelector).text() == "" && !$(nextSelector).hasClass('show')) {
+            clearArea(iteration + increment);
         }
     }
 
-    function clearRight(iteration) {
-        var nextSelector = ".wrapper div:nth-child(" + (iteration + 1) + ")";
-        if ($(nextSelector).text() != "" && !specialNexts.includes(iteration)) {
-            $(nextSelector).addClass('show');
-            $(nextSelector).removeClass("flagged");
-        } else if (!specialNexts.includes(iteration) && $(nextSelector).text() == "" && !$(nextSelector).hasClass('show')) {
-            clearArea(iteration + 1);
-        }
-    }
-
-    function clearAbove(iteration) {
-        var nextSelector = ".wrapper div:nth-child(" + (iteration - 15) + ")";
-        if ($(nextSelector).text() != "" && !specialAbove.includes(iteration)) {
-            $(nextSelector).addClass('show');
-            $(nextSelector).removeClass("flagged");
-        } else if (!specialAbove.includes(iteration) && $(nextSelector).text() == "" && !$(nextSelector).hasClass('show')) {
-            clearArea(iteration - 15);
-        }
-    }
-
-    function clearBelow(iteration) {
-        var nextSelector = ".wrapper div:nth-child(" + (iteration + 15) + ")";
-        if ($(nextSelector).text() != "" && !specialBelow.includes(iteration)) {
-            $(nextSelector).addClass('show');
-            $(nextSelector).removeClass("flagged");
-        } else if (!specialBelow.includes(iteration) && $(nextSelector).text() == "" && !$(nextSelector).hasClass('show')) {
-            clearArea(iteration + 15);
-        }
-    }
-
-    function clearAboveRight(iteration) {
-        var nextSelector = ".wrapper div:nth-child(" + (iteration - 14) + ")";
-        if ($(nextSelector).text() != "" && !specialAboveRight.includes(iteration)) {
-            $(nextSelector).addClass('show');
-            $(nextSelector).removeClass("flagged");
-        } else if (!specialAboveRight.includes(iteration) && $(nextSelector).text() == "" && !$(nextSelector).hasClass('show')) {
-            clearArea(iteration - 14);
-        }
-    }
-
-    function clearBelowRight(iteration) {
-        var nextSelector = ".wrapper div:nth-child(" + (iteration + 16) + ")";
-        if ($(nextSelector).text() != "" && !specialBelowRight.includes(iteration)) {
-            $(nextSelector).addClass('show');
-            $(nextSelector).removeClass("flagged");
-        } else if (!specialBelowRight.includes(iteration) && $(nextSelector).text() == "" && !$(nextSelector).hasClass('show')) {
-            clearArea(iteration + 16);
-        }
-    }
-
-    function clearAboveLeft(iteration) {
-        var nextSelector = ".wrapper div:nth-child(" + (iteration - 16) + ")";
-        if ($(nextSelector).text() != "" && !specialAboveLeft.includes(iteration)) {
-            $(nextSelector).addClass('show');
-            $(nextSelector).removeClass("flagged");
-        } else if (!specialAboveLeft.includes(iteration) && $(nextSelector).text() == "" && !$(nextSelector).hasClass('show')) {
-            clearArea(iteration - 16);
-        }
-    }
-
-    function clearBelowLeft(iteration) {
-        var nextSelector = ".wrapper div:nth-child(" + (iteration + 14) + ")";
-        if ($(nextSelector).text() != "" && !specialBelowLeft.includes(iteration)) {
-            $(nextSelector).addClass('show');
-            $(nextSelector).removeClass("flagged");
-        } else if (!specialBelowLeft.includes(iteration) && $(nextSelector).text() == "" && !$(nextSelector).hasClass('show')) {
-            clearArea(iteration + 14);
-        }
-    }
 
 
 }());
