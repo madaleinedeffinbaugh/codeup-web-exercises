@@ -333,6 +333,14 @@
                     } else {
                         $(this).addClass('flagged');
                     }
+                    var countFlags = 0;
+                    for(var i = 1; i < 226; i++) {
+                        var selector = ".wrapper div:nth-child(" + i + ")";
+                        if($(selector).hasClass('flagged')) {
+                            countFlags += 1;
+                        }
+                    }
+                    $('#flagNumber').html('<p id="flagNumber">Current Number of Flags Placed: ' + countFlags + '</p>')
                 } else {
                     if ($(this).hasClass("mine")) {
                         hitAMine(this);

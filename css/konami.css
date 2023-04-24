@@ -156,7 +156,7 @@ h4 {
     background-image: url("../img/flag.png");
 }
 .flagged-button {
-    background-color: darkgray;
+    background-color: #751e29;
 }
 #flag {
     margin-bottom: 1em;
