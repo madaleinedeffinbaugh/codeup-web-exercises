@@ -463,6 +463,7 @@
             $('#lives').replaceWith("<p id='lives'>Lives: " + lives + "</p>");
             var answer = confirm("Would you like to play again?");
             if (answer) {
+                $('#flagNumber').html('<p id="flagNumber">Current Number of Flags Placed: 0</p>')
                 startMineSweeper();
             } else {
                 homeScreen();
