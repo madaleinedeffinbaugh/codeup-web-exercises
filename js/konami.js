@@ -130,7 +130,7 @@
             solved = [];
             var timeout = setTimeout(function () {
                 setEventListeners();
-            }, 3000)
+            }, 4000)
         } else {
             alert("You have no lives left to play with!");
             homeScreen();
@@ -138,12 +138,14 @@
 
 
     }
+
     function showCards() {
         $('.card-container > .card').addClass('flip');
         var timeout = setTimeout(function () {
             $('.card-container > .card').removeClass('flip');
         }, 3000)
     }
+
     function randomizeOrder() {
         var cards = [cardOne, cardOne, cardTwo, cardTwo, cardThree, cardThree, cardFour, cardFour, cardFive, cardFive, cardSix, cardSix];
         var index = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -160,6 +162,7 @@
         $('.wrapperTwo').html(cards[picked[4]] + cards[picked[5]] + cards[picked[6]] + cards[picked[7]]);
         $('.wrapperThree').html(cards[picked[8]] + cards[picked[9]] + cards[picked[10]] + cards[picked[11]]);
     }
+
     function dynamicEventListeners(start, end) {
         for (var i = start; i < end; i++) {
             var selector = ".card-container:eq(" + i + ")";
@@ -174,6 +177,7 @@
             });
         }
     }
+
     function setEventListeners() {
         // wrapper one
         dynamicEventListeners(0, 4);
@@ -183,6 +187,7 @@
         dynamicEventListeners(8, 12);
 
     }
+
     function mainGamePlay(itemNo) {
         var cardSelector = ".card-container:eq(" + itemNo + ") > .card";
         var selector = ".card-container:eq(" + itemNo + ")"
@@ -190,6 +195,7 @@
         flip(cardSelector, selector);
         choose(cardName);
     }
+
     function flip(cardSelector, selector) {
         $(cardSelector).addClass('flip');
         $(selector).off('click');
@@ -198,6 +204,7 @@
             $('.card-container').off('click');
         }
     }
+
     function hideSolved() {
         solved.forEach(function (card) {
             var selector = 'div[name="' + card + '"]';
@@ -205,6 +212,7 @@
             $(selector).off('click');
         })
     }
+
     function choose(cardName) {
         choices.push(cardName);
         if (choices.length == 2) {
@@ -215,40 +223,45 @@
             }
         }
     }
+
     function winner(choicesArray) {
         solved.push(choicesArray[0]);
         solved.push(choicesArray[1]);
-        var timeout = setTimeout(function () {
-            if (solved.length == 12) {
-                hideSolved();
-                alert('YOU WINN!')
+        if (solved.length == 12) {
+            hideSolved();
+            var timeout = setTimeout(function () {
+                alert('YOU WIN!')
                 lives += 3;
                 $('#lives').replaceWith("<p id='lives'>Lives: " + lives + "</p>");
                 var answer = confirm("Would you like to play again?");
                 playAgain(answer);
-            }
-            reset();
-        }, 2000)
+            }, 1000)
+        }
+        reset();
+
     }
+
     function loser(choices) {
         var cardSelectorOne = 'div[name="' + choices[0] + '"] > .card'
         var cardSelectorTwo = 'div[name="' + choices[1] + '"] > .card'
         var timeout = setTimeout(function () {
+            $(cardSelectorOne).removeClass('flip');
+            $(cardSelectorOne).off('click');
+            $(cardSelectorTwo).removeClass('flip');
+            $(cardSelectorTwo).off('click');
             lives -= 1;
             $('#lives').replaceWith("<p id='lives'>Lives: " + lives + "</p>");
             if (lives <= 0) {
-                alert('You are out of lives!');
-                var answer = confirm("Play again?");
-                playAgain(answer);
+                var timeout = setTimeout(function () {
+                    alert('You are out of lives!');
+                    homeScreen();
+                }, 1000);
             } else {
-                $(cardSelectorOne).removeClass('flip');
-                $(cardSelectorOne).off('click');
-                $(cardSelectorTwo).removeClass('flip');
-                $(cardSelectorTwo).off('click');
                 reset();
             }
-        }, 2000)
+        }, 1000);
     }
+
     function playAgain(answer) {
         if (answer) {
             $('.card-container').removeClass('hide');
@@ -258,12 +271,14 @@
             homeScreen();
         }
     }
+
     function reset() {
         flipped = 0;
         choices = [];
         setEventListeners();
         hideSolved();
     }
+
     function homeScreen() {
         $("#matching-game").css('display', 'none');
         $("#minesweeper-game").css('display', 'none');
@@ -337,6 +352,7 @@
 
 
     }
+
     function randomMinePlacement() {
         var mines = []
         while (mines.length < 40) {
@@ -349,6 +365,7 @@
             }
         }
     }
+
     function clues() {
         for (var i = 1; i < 226; i++) {
             var counter = 0;
@@ -402,10 +419,12 @@
 
         }
     }
+
     function reveal(element) {
         $(element).addClass("show");
         $(element).removeClass("flagged");
     }
+
     function winMineSweeper() {
         var counter = 0;
         for (var i = 1; i < 226; i++) {
@@ -426,6 +445,7 @@
             }
         }
     }
+
     function hitAMine(mine) {
         $(mine).addClass('mine-show');
         $(mine).removeClass("flagged");
@@ -439,9 +459,10 @@
             } else {
                 homeScreen();
             }
-        }, 500);
+        }, 50);
 
     }
+
     function getChildNumber(selector) {
         var count = 0;
         var selectorCount = selector;
@@ -452,6 +473,7 @@
         }
         return count + 1;
     }
+
     //the next nine functions are used to clear the surrounding area when a blank space is clicked on
     function clearArea(iteration) {
         var selector = ".wrapper div:nth-child(" + iteration + ")";
@@ -466,6 +488,7 @@
         clearBelowLeft(iteration);
         clearBelowRight(iteration);
     }
+
     function clearLeft(iteration) {
         var nextSelector = ".wrapper div:nth-child(" + (iteration - 1) + ")";
         if ($(nextSelector).text() != "" && !specialPrevs.includes(iteration)) {
@@ -475,6 +498,7 @@
             clearArea(iteration - 1);
         }
     }
+
     function clearRight(iteration) {
         var nextSelector = ".wrapper div:nth-child(" + (iteration + 1) + ")";
         if ($(nextSelector).text() != "" && !specialNexts.includes(iteration)) {
@@ -484,6 +508,7 @@
             clearArea(iteration + 1);
         }
     }
+
     function clearAbove(iteration) {
         var nextSelector = ".wrapper div:nth-child(" + (iteration - 15) + ")";
         if ($(nextSelector).text() != "" && !specialAbove.includes(iteration)) {
@@ -493,6 +518,7 @@
             clearArea(iteration - 15);
         }
     }
+
     function clearBelow(iteration) {
         var nextSelector = ".wrapper div:nth-child(" + (iteration + 15) + ")";
         if ($(nextSelector).text() != "" && !specialBelow.includes(iteration)) {
@@ -502,6 +528,7 @@
             clearArea(iteration + 15);
         }
     }
+
     function clearAboveRight(iteration) {
         var nextSelector = ".wrapper div:nth-child(" + (iteration - 14) + ")";
         if ($(nextSelector).text() != "" && !specialAboveRight.includes(iteration)) {
@@ -511,6 +538,7 @@
             clearArea(iteration - 14);
         }
     }
+
     function clearBelowRight(iteration) {
         var nextSelector = ".wrapper div:nth-child(" + (iteration + 16) + ")";
         if ($(nextSelector).text() != "" && !specialBelowRight.includes(iteration)) {
@@ -520,6 +548,7 @@
             clearArea(iteration + 16);
         }
     }
+
     function clearAboveLeft(iteration) {
         var nextSelector = ".wrapper div:nth-child(" + (iteration - 16) + ")";
         if ($(nextSelector).text() != "" && !specialAboveLeft.includes(iteration)) {
@@ -529,6 +558,7 @@
             clearArea(iteration - 16);
         }
     }
+
     function clearBelowLeft(iteration) {
         var nextSelector = ".wrapper div:nth-child(" + (iteration + 14) + ")";
         if ($(nextSelector).text() != "" && !specialBelowLeft.includes(iteration)) {
@@ -538,8 +568,6 @@
             clearArea(iteration + 14);
         }
     }
-
-
 
 
 }());
