@@ -86,6 +86,35 @@
         the park search.
     </dd>
     <a href="#" class="toggle-one">Toggle Answer</a>
+
+    <br>
+    <button id="lists">Make something yellow...</button>
+
+    <h3>Yosemite National Park</h3>
+    <ul>
+        <li>This park is located in California's Sierra Nevada moutains.</li>
+        <li>It is famous for it's giant, ancient sequoia trees.</li>
+        <li>The giant rock formations glow like fire at sunset.</li>
+        <li>It is home to one of the tallest waterfalls in the world.</li>
+    </ul>
+
+    <h3>Yellow Stone National Park</h3>
+    <ul>
+        <li>This park is nearly 3,500-sq-miles of wildernesss recreational area.</li>
+        <li>It's located in Wyoming and parts of Montana and Idaho.</li>
+        <li>It sits atop a volcanic hot spot.</li>
+        <li>It has a famous gushing geyser named Old Faithful</li>
+    </ul>
+
+    <h3>Grand Canyon National Park</h3>
+    <ul>
+        <li>This park is located in Arizona</li>
+        <li>It has many viewpoints including Mather Point, Yavapai Observation Station and architect Mary Colter's Lookout Studio</li>
+        <li>The Grand Canyon is bigger than the state of Rhode Island</li>
+        <li>There is an estimated 1,000 caves around the canyon and only one is open to the public</li>
+    </ul>
+
+
 </dl>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -100,6 +129,20 @@
 
         $('.toggle-one').click(function (event) {
             $(event.target).prev().toggleClass('invisible');
+        })
+
+        $('#lists').click(function() {
+            $('ul').each(function() {
+                $(this).children().last().css("background-color", "yellow");
+            });
+        });
+
+        $('h3').click(function() {
+            $(this).next().children().css('font-weight', 'bold');
+        });
+
+        $('li').click(function() {
+            $(this).parent().children().first().css('color', 'blue');
         })
     }())
 
