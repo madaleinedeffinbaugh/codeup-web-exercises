@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+</head>
+<body>
+
+<h1>My Tool Store</h1>
+
+<table id="products">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Categories</th>
+    </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+<button id="refresh">Refresh List</button>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+    (function () {
+        "use strict";
+
+        $('#refresh').click(function () {
+            $('#insertProducts').html('<tbody id="insertProducts"></tbody>');
+            $.get('data/inventory.json').done(function (res) {
+                res.forEach(function (tool) {
+                    $('#insertProducts').append(`<tr><td>${tool.title}</td><td>${tool.quantity}</td><td>$${tool.price}</td><td>${tool.categories}</td></tr>`);
+                })
+            }).fail(function () {
+                alert("uh oh, something went wrong...")
+            })
+        })
+
+
+        $.post('data/inventory.json',
+            {
+                title: "Socket Wrench",
+                quantity: 10,
+                categories: ["tool"],
+                price: 15
+            },
+            {
+                title: "Saw",
+                quantity: 3,
+                categories: ["tool"],
+                price: 35
+            }).done(function (data) {
+            alert("post request complete!")
+        }).fail(function () {
+            alert("uh oh, something went wrong...")
+        })
+
+
+    })();
+</script>
+
+</body>
+</html>
