@@ -39,23 +39,23 @@
         })
 
 
-        $.post('data/inventory.json',
-            {
-                title: "Socket Wrench",
-                quantity: 10,
-                categories: ["tool"],
-                price: 15
-            },
-            {
-                title: "Saw",
-                quantity: 3,
-                categories: ["tool"],
-                price: 35
-            }).done(function (data) {
-            alert("post request complete!")
-        }).fail(function () {
-            alert("uh oh, something went wrong...")
-        })
+        // $.post('data/inventory.json',
+        //     {
+        //         title: "Socket Wrench",
+        //         quantity: 10,
+        //         categories: ["tool"],
+        //         price: 15
+        //     },
+        //     {
+        //         title: "Saw",
+        //         quantity: 3,
+        //         categories: ["tool"],
+        //         price: 35
+        //     }).done(function (data) {
+        //     alert("post request complete!")
+        // }).fail(function () {
+        //     alert("uh oh, something went wrong...")
+        // })
 
 
     })();
