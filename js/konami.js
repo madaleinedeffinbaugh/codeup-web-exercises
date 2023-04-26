@@ -275,8 +275,10 @@
     function reset() {
         flipped = 0;
         choices = [];
-        setEventListeners();
-        hideSolved();
+        var timeout = setTimeout(function() {
+            setEventListeners();
+            hideSolved();
+        }, 1000)
     }
 
     function homeScreen() {
