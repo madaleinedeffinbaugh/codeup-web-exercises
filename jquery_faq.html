@@ -8,7 +8,7 @@
             visibility: hidden;
         }
 
-        header {
+        header, h2 {
             text-align: center;
         }
 
@@ -20,9 +20,46 @@
         dd {
             margin-top: .2em;
         }
+
+        .bonus-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            max-width: 960px;
+            margin: 0 auto 4em auto;
+        }
+
+        .bonus-section div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button {
+            max-width: 75px;
+        }
+
+        .pictures {
+            height: 300px;
+            width: 200px;
+            border: 10px solid black;
+            margin: 1em;
+        }
+
+        .bg-one {
+            background-image: url("img/picture-frame-one.jpg");
+        }
+
+        .bg-two {
+            background-image: url("img/picture-frame-two.jpg");
+        }
+
+        .bg-three {
+            background-image: url("img/picture-frame-three.jpg");
+        }
     </style>
 </head>
 <body>
+
 <header>
     <h4>National Park FAQs</h4>
     <a href="#" id="toggle-all">Toggle All answers</a>
@@ -86,36 +123,53 @@
         the park search.
     </dd>
     <a href="#" class="toggle-one">Toggle Answer</a>
-
-    <br>
-    <button id="lists">Make something yellow...</button>
-
-    <h3>Yosemite National Park</h3>
-    <ul>
-        <li>This park is located in California's Sierra Nevada moutains.</li>
-        <li>It is famous for it's giant, ancient sequoia trees.</li>
-        <li>The giant rock formations glow like fire at sunset.</li>
-        <li>It is home to one of the tallest waterfalls in the world.</li>
-    </ul>
-
-    <h3>Yellow Stone National Park</h3>
-    <ul>
-        <li>This park is nearly 3,500-sq-miles of wildernesss recreational area.</li>
-        <li>It's located in Wyoming and parts of Montana and Idaho.</li>
-        <li>It sits atop a volcanic hot spot.</li>
-        <li>It has a famous gushing geyser named Old Faithful</li>
-    </ul>
-
-    <h3>Grand Canyon National Park</h3>
-    <ul>
-        <li>This park is located in Arizona</li>
-        <li>It has many viewpoints including Mather Point, Yavapai Observation Station and architect Mary Colter's Lookout Studio</li>
-        <li>The Grand Canyon is bigger than the state of Rhode Island</li>
-        <li>There is an estimated 1,000 caves around the canyon and only one is open to the public</li>
-    </ul>
-
-
 </dl>
+
+<br>
+<button id="lists">Make something yellow...</button>
+
+<h3>Yosemite National Park</h3>
+<ul>
+    <li>This park is located in California's Sierra Nevada moutains.</li>
+    <li>It is famous for it's giant, ancient sequoia trees.</li>
+    <li>The giant rock formations glow like fire at sunset.</li>
+    <li>It is home to one of the tallest waterfalls in the world.</li>
+</ul>
+
+<h3>Yellow Stone National Park</h3>
+<ul>
+    <li>This park is nearly 3,500-sq-miles of wildernesss recreational area.</li>
+    <li>It's located in Wyoming and parts of Montana and Idaho.</li>
+    <li>It sits atop a volcanic hot spot.</li>
+    <li>It has a famous gushing geyser named Old Faithful</li>
+</ul>
+
+<h3>Grand Canyon National Park</h3>
+<ul>
+    <li>This park is located in Arizona</li>
+    <li>It has many viewpoints including Mather Point, Yavapai Observation Station and architect Mary Colter's Lookout
+        Studio
+    </li>
+    <li>The Grand Canyon is bigger than the state of Rhode Island</li>
+    <li>There is an estimated 1,000 caves around the canyon and only one is open to the public</li>
+</ul>
+
+<h2>✨ BONUS ✨</h2>
+<div class="bonus-section">
+    <div>
+        <div class="pictures bg-one"></div>
+        <button>Swap!</button>
+    </div>
+    <div>
+        <div class="pictures bg-two"></div>
+        <button>Swap!</button>
+    </div>
+    <div>
+        <div class="pictures bg-three"></div>
+        <button>Swap!</button>
+    </div>
+</div>
+
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -131,18 +185,71 @@
             $(event.target).prev().toggleClass('invisible');
         })
 
-        $('#lists').click(function() {
-            $('ul').each(function() {
+        $('#lists').click(function () {
+            $('ul').each(function () {
                 $(this).children().last().css("background-color", "yellow");
             });
         });
 
-        $('h3').click(function() {
+        $('h3').click(function () {
             $(this).next().children().css('font-weight', 'bold');
         });
 
-        $('li').click(function() {
+        $('li').click(function () {
             $(this).parent().children().first().css('color', 'blue');
+        })
+
+
+        //bonus section
+        $('button').click(function() {
+            var frameOne = $('.bonus-section').children().children().first();
+            var frameTwo = $('.bonus-section').children().first().next().children().first();
+            var frameThree = $('.bonus-section').children().children().last().prev();
+
+            //clicking on the first frame
+            if(($(this).prev()).is(frameOne)) {
+                var frameTwoPhoto = $(frameTwo).attr('class');
+                var frameOnePhoto = $(frameOne).attr('class')
+                $(frameOne).removeClass('bg-one bg-two bg-three');
+                $(frameOne).addClass(frameTwoPhoto);
+                $(frameTwo).removeClass('bg-one bg-two bg-three');
+                $(frameTwo).addClass(frameOnePhoto);
+            }
+
+            //clicking on the second frame
+            if(($(this).prev()).is(frameTwo)) {
+                var frameTwoPhoto = $(frameTwo).attr('class');
+                var frameOnePhoto = $(frameOne).attr('class')
+                var frameThreePhoto = $(frameThree).attr('class')
+
+                var random = (Math.floor( Math.random() * 2 )) + 1;
+                switch(random) {
+                    case 1:
+                        $(frameTwo).removeClass('bg-one bg-two bg-three');
+                        $(frameTwo).addClass(frameOnePhoto);
+                        $(frameOne).removeClass('bg-one bg-two bg-three');
+                        $(frameOne).addClass(frameTwoPhoto);
+                        break;
+                    case 2:
+                        $(frameTwo).removeClass('bg-one bg-two bg-three');
+                        $(frameTwo).addClass(frameThreePhoto);
+                        $(frameThree).removeClass('bg-one bg-two bg-three');
+                        $(frameThree).addClass(frameTwoPhoto);
+                        break;
+                }
+            }
+
+
+            //clicking on the third frame
+            if(($(this).prev()).is(frameThree)) {
+                var frameTwoPhoto = $(frameTwo).attr('class');
+                var frameThreePhoto = $(frameThree).attr('class')
+                $(frameThree).removeClass('bg-one bg-two bg-three');
+                $(frameThree).addClass(frameTwoPhoto);
+                $(frameTwo).removeClass('bg-one bg-two bg-three');
+                $(frameTwo).addClass(frameThreePhoto);
+            }
+
         })
     }())
 
