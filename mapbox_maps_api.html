@@ -13,8 +13,8 @@
         }
 
         #map {
-            height: 300px;
-            width: 100%;
+            height: 400px;
+            width: 400px;
         }
     </style>
 </head>
@@ -30,6 +30,7 @@
     <option value="reset">Reset</option>
 </select>
 <!--</form>-->
+<button id="test-geocode">Geocode</button>
 
 
 <!--Jquery-->
@@ -43,7 +44,14 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
 <!--custom-->
 <script>
-    var startingZoom = 9;
+    var startingZoom = 12;
+    var startLat = 51.497682;
+
+
+    var startLon =  -0.144723;
+
+
+
 
 
     mapboxgl.accessToken = MAPBOX_KEY;
@@ -51,7 +59,7 @@
         container: 'map', // container ID
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
         style: 'mapbox://styles/mapbox/streets-v12', // style URL
-        center: [-0.127850, 51.511760], // starting position [lng, lat]
+        center: [startLon, startLat], // starting position [lng, lat]
         zoom: startingZoom // starting zoom
     });
 
@@ -72,8 +80,61 @@
                 map.setZoom(startingZoom);
                 break;
         }
-
     })
+
+    $('#test-geocode').click(function() {
+        // the  geocode method from mapbox-geocoder-utils.js
+        geocode("600 Navarro St #350, San Antonio, TX 78205", MAPBOX_KEY).then(function(result) {
+            console.log(result);
+            map.setCenter(result);
+            map.setZoom(20);
+        });
+    })
+
+    //test marker
+    var marker = new mapboxgl.Marker().setLngLat([-98.4916, 29.4260]).addTo(map);
+
+    //test popup
+    var alamoPopup = new mapboxgl.Popup()
+        .setHTML("<p>Remember The Alamo!</p>")
+    marker.setPopup(alamoPopup)
+
+    //three restaurants
+    var restaurants = [
+        {
+            name: 'Coco Ichibanya',
+            address: '17-18 Great Newport St, London WC2H 7JE, United Kingdom',
+        },
+        {
+            name: 'McDonald\'s',
+            address: 'Main Concourse, Victoria Station, London SW1V 1JT, United Kingdom',
+        },
+        {
+            name: 'Gordon Ramsay Restaurant',
+            address: '68 Royal Hospital Rd, London SW3 4HP, United Kingdom',
+        },
+    ];
+
+    function placeMarkerAndPopup(info, token, map) {
+        geocode(info.address, token).then(function(coordinates) {
+            var popup = new mapboxgl.Popup()
+                .setHTML(`<p>${info.name}</p>`);
+            var marker = new mapboxgl.Marker()
+                .setLngLat(coordinates)
+                .addTo(map)
+                marker.setPopup(popup);
+
+        });
+    }
+
+    restaurants.forEach(function(restaurant) {
+        console.log(restaurant);
+        placeMarkerAndPopup(restaurant, MAPBOX_KEY, map);
+    })
+
+
+
+
 
 
 </script>
