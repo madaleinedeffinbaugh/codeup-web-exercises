@@ -30,6 +30,7 @@
 </select>
 
 <button id="hide">Hide All Markers</button>
+<button id="show">Show All Markers</button>
 
 
 
@@ -127,6 +128,13 @@
     $('#hide').click(function() {
         markers.forEach(function(marker) {
             marker.remove()
+        })
+    })
+
+    //remove all markers on click
+    $('#show').click(function() {
+        markers.forEach(function(marker) {
+            marker.addTo(map);
         })
     })
 
