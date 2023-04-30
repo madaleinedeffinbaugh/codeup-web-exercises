@@ -13,8 +13,8 @@
         }
 
         #map {
-            height: 400px;
-            width: 400px;
+            height: 600px;
+            width: 600px;
         }
     </style>
 </head>
@@ -83,14 +83,17 @@
         {
             name: 'Coco Ichibanya',
             address: '17-18 Great Newport St, London WC2H 7JE, United Kingdom',
+            info : 'This my favorite restaurant because it is one of the only places in England with flavor. We used to make the three hour trip here regularly on weekends.'
         },
         {
-            name: 'McDonald\'s',
+            name: 'McDonalds',
             address: 'Main Concourse, Victoria Station, London SW1V 1JT, United Kingdom',
+            info: 'This guy made it on the favorites list because in England they have chicken selects (chicken tenders) with smokey bbq sauce and its the best thing ever.'
         },
         {
             name: 'Gordon Ramsay Restaurant',
             address: '68 Royal Hospital Rd, London SW3 4HP, United Kingdom',
+            info: 'This place just has really good food.'
         },
     ];
 
@@ -98,7 +101,7 @@
     function placeMarkerAndPopup(info, token, map) {
         geocode(info.address, token).then(function(coordinates) {
             var popup = new mapboxgl.Popup()
-                .setHTML(`<p>${info.name}</p>`);
+                .setHTML(`<h4>${info.name}</h4><p>${info.info}</p>`);
             var marker = new mapboxgl.Marker()
                 .setLngLat(coordinates)
                 .addTo(map)
