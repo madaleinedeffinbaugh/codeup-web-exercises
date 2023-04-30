@@ -20,8 +20,7 @@
 </head>
 <body>
 <div id="map"></div>
-<!--<form>-->
-<!--onchange="this.form.submit()"-->
+
 <label for="change-zoom">Change zoom level</label>
 <select name="change-zoom" id="change-zoom">
     <option value="5" >5</option>
@@ -29,8 +28,9 @@
     <option value="20">20</option>
     <option value="reset">Reset</option>
 </select>
-<!--</form>-->
-<button id="test-geocode">Geocode</button>
+
+<button id="hide">Hide All Markers</button>
+
 
 
 <!--Jquery-->
@@ -102,6 +102,9 @@
         },
     ];
 
+    //store all current markers
+    var markers = [];
+
     //function to place marker and popup
     function placeMarkerAndPopup(info, token, map) {
         geocode(info.address, token).then(function(coordinates) {
@@ -111,13 +114,20 @@
                 .setLngLat(coordinates)
                 .addTo(map)
             marker.setPopup(popup);
-
+            markers.push(marker);
         });
     }
 
     //looping through restaurants and adding them to the map
     restaurants.forEach(function(restaurant) {
         placeMarkerAndPopup(restaurant, MAPBOX_KEY, map);
+    })
+
+    //remove all markers on click
+    $('#hide').click(function() {
+        markers.forEach(function(marker) {
+            marker.remove()
+        })
     })
 
 
