@@ -58,6 +58,11 @@
         zoom: startingZoom
     });
 
+    //center map on first resturant
+    geocode("17-18 Great Newport St, London WC2H 7JE, United Kingdom", MAPBOX_KEY).then(function(result) {
+        map.setCenter(result);
+    });
+
     //change zoom button
     $('#change-zoom').change(function(e) {
         e.preventDefault();
@@ -126,6 +131,10 @@
     //         map.setZoom(20);
     //     });
     // })
+
+
+
+
 
     //test marker
     // var marker = new mapboxgl.Marker().setLngLat([-98.4916, 29.4260]).addTo(map);
