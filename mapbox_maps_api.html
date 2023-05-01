@@ -6,7 +6,8 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
         body {
             margin: 0;
@@ -22,7 +23,8 @@
             text-align: center;
             margin: .5em;
         }
-        #controls>* {
+
+        #controls > * {
             margin: 1em;
         }
 
@@ -38,40 +40,48 @@
     </style>
 </head>
 <body>
+<!--header-->
 <h1>Welcome To My Map</h1>
 
+<!--container-->
 <div id="container" class="d-flex">
-<div id="map"></div>
+    <!--map container-->
+    <div id="map"></div>
 
+    <!--controls sections-->
     <div id="controls" class=" d-flex flex-column text-center">
         <div id="zoom">
-<label for="change-zoom">Change zoom level</label>
-<select name="change-zoom" id="change-zoom">
-    <option value="5" >5</option>
-    <option value="15" >15</option>
-    <option value="20">20</option>
-    <option value="reset">Reset</option>
-</select>
+            <label for="change-zoom">Change zoom level</label>
+            <select name="change-zoom" id="change-zoom">
+                <option value="5">5</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="reset">Reset</option>
+            </select>
         </div>
 
-<button id="toggle-markers" class="shown btn btn-secondary">Hide All Markers</button>
+        <!--toggle button-->
+        <button id="toggle-markers" class="shown btn btn-secondary">Hide All Markers</button>
 
+        <!--search area-->
         <div id="search-area">
-<label for="search" class="d-block">Mark a Location</label>
-<input type="text" id="search" placeholder="Enter Address Here">
-    </div>
+            <label for="search" class="d-block">Mark a Location</label>
+            <input type="text" id="search" placeholder="Enter Address Here">
+        </div>
 
-            <button id="recenter-map" class="btn btn-secondary">Recenter Map</button>
+        <!--recenter button-->
+        <button id="recenter-map" class="btn btn-secondary">Recenter Map</button>
     </div>
 </div>
-
 
 
 <!--Jquery-->
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <!--BootStrap-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 <!--geocode-->
 <script src="js/mapbox-geocoder-utils.js"></script>
 <!--access keys-->
@@ -83,7 +93,7 @@
     //starting points
     var startingZoom = 12;
     var startLat = 51.497682;
-    var startLon =  -0.144723;
+    var startLon = -0.144723;
 
     //creating map
     mapboxgl.accessToken = MAPBOX_KEY;
@@ -95,15 +105,15 @@
     });
 
     //center map on first resturant
-    geocode("17-18 Great Newport St, London WC2H 7JE, United Kingdom", MAPBOX_KEY).then(function(result) {
+    geocode("17-18 Great Newport St, London WC2H 7JE, United Kingdom", MAPBOX_KEY).then(function (result) {
         map.setCenter(result);
     });
 
     //change zoom button
-    $('#change-zoom').change(function(e) {
+    $('#change-zoom').change(function (e) {
         e.preventDefault();
         var selected = $('#change-zoom').val();
-        switch(selected) {
+        switch (selected) {
             case '5':
                 map.setZoom(5);
                 break;
@@ -124,7 +134,7 @@
         {
             name: 'Coco Ichibanya',
             address: '17-18 Great Newport St, London WC2H 7JE, United Kingdom',
-            info : 'This my favorite restaurant because it is one of the only places in England with flavor. We used to make the three hour trip here regularly on weekends.'
+            info: 'This my favorite restaurant because it is one of the only places in England with flavor. We used to make the three hour trip here regularly on weekends.'
         },
         {
             name: 'McDonalds',
@@ -143,7 +153,7 @@
 
     //function to place marker and popup with extra information
     function placeMarkerAndPopup(info, token, map) {
-        geocode(info.address, token).then(function(coordinates) {
+        geocode(info.address, token).then(function (coordinates) {
             var popup = new mapboxgl.Popup()
                 .setHTML(`<h4>${info.name}</h4><p>${info.info}</p>`);
             var marker = new mapboxgl.Marker()
@@ -154,8 +164,9 @@
         });
     }
 
+    //place markers
     function placeMarker(info, token, map) {
-        geocode(info, token).then(function(coordinates) {
+        geocode(info, token).then(function (coordinates) {
             var marker = new mapboxgl.Marker()
                 .setLngLat(coordinates)
                 .addTo(map)
@@ -165,20 +176,20 @@
     }
 
     //looping through restaurants and adding them to the map
-    restaurants.forEach(function(restaurant) {
+    restaurants.forEach(function (restaurant) {
         placeMarkerAndPopup(restaurant, MAPBOX_KEY, map);
     })
 
     //Made hide and show buttons into one button to toggle marker visibility
-    $('#toggle-markers').click(function() {
-        if($(this).hasClass('shown')) {
-            markers.forEach(function(marker) {
+    $('#toggle-markers').click(function () {
+        if ($(this).hasClass('shown')) {
+            markers.forEach(function (marker) {
                 marker.remove()
             })
             $(this).removeClass('shown');
             $(this).text('Show All Markers')
         } else {
-            markers.forEach(function(marker) {
+            markers.forEach(function (marker) {
                 marker.addTo(map);
             })
             $(this).addClass('shown');
@@ -187,52 +198,20 @@
     })
 
     //get user input from search bar and add to map
-    $('#search').keyup(function(event) {
-        if(event.key === "Enter") {
+    $('#search').keyup(function (event) {
+        if (event.key === "Enter") {
             var address = $(this).val();
             placeMarker(address, MAPBOX_KEY, map);
             $(this).val('');
         }
     })
 
-    $('#recenter-map').click(function() {
-        geocode("17-18 Great Newport St, London WC2H 7JE, United Kingdom", MAPBOX_KEY).then(function(result) {
+    //code for recenter button
+    $('#recenter-map').click(function () {
+        geocode("17-18 Great Newport St, London WC2H 7JE, United Kingdom", MAPBOX_KEY).then(function (result) {
             map.setCenter(result);
         });
     })
-
-
-
-
-    //****************this is just me testing out how to do the different things, pls ignore***************
-    // $('#test-geocode').click(function() {
-    //     // the  geocode method from mapbox-geocoder-utils.js
-    //     geocode("600 Navarro St #350, San Antonio, TX 78205", MAPBOX_KEY).then(function(result) {
-    //         console.log(result);
-    //         map.setCenter(result);
-    //         map.setZoom(20);
-    //     });
-    // })
-
-
-
-
-
-    //test marker
-    // var marker = new mapboxgl.Marker().setLngLat([-98.4916, 29.4260]).addTo(map);
-    //
-    // //test popup
-    // var alamoPopup = new mapboxgl.Popup()
-    //     .setHTML("<p>Remember The Alamo!</p>")
-    // marker.setPopup(alamoPopup)
-
-
-
-
-
-
-
-
 </script>
 </body>
 </html>
