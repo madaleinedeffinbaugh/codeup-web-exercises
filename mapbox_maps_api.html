@@ -60,6 +60,8 @@
 <label for="search" class="d-block">Mark a Location</label>
 <input type="text" id="search" placeholder="Enter Address Here">
     </div>
+
+            <button id="recenter-map" class="btn btn-secondary">Recenter Map</button>
     </div>
 </div>
 
@@ -158,6 +160,7 @@
                 .setLngLat(coordinates)
                 .addTo(map)
             markers.push(marker);
+            map.setCenter(coordinates);
         });
     }
 
@@ -191,6 +194,13 @@
             $(this).val('');
         }
     })
+
+    $('#recenter-map').click(function() {
+        geocode("17-18 Great Newport St, London WC2H 7JE, United Kingdom", MAPBOX_KEY).then(function(result) {
+            map.setCenter(result);
+        });
+    })
+
 
 
 
