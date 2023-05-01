@@ -29,8 +29,7 @@
     <option value="reset">Reset</option>
 </select>
 
-<button id="hide">Hide All Markers</button>
-<button id="show">Show All Markers</button>
+<button id="toggle-markers" class="shown">Hide All Markers</button>
 
 
 
@@ -124,18 +123,21 @@
         placeMarkerAndPopup(restaurant, MAPBOX_KEY, map);
     })
 
-    //remove all markers on click
-    $('#hide').click(function() {
-        markers.forEach(function(marker) {
-            marker.remove()
-        })
-    })
-
-    //remove all markers on click
-    $('#show').click(function() {
-        markers.forEach(function(marker) {
-            marker.addTo(map);
-        })
+    //Made hide and show buttons into one button to toggle marker visibility
+    $('#toggle-markers').click(function() {
+        if($(this).hasClass('shown')) {
+            markers.forEach(function(marker) {
+                marker.remove()
+            })
+            $(this).removeClass('shown');
+            $(this).text('Show All Markers')
+        } else {
+            markers.forEach(function(marker) {
+                marker.addTo(map);
+            })
+            $(this).addClass('shown');
+            $(this).text('Hide All Markers')
+        }
     })
 
 
