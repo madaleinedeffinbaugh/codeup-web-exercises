@@ -20,16 +20,31 @@
 
         h1 {
             text-align: center;
+            margin: .5em;
+        }
+        #controls>* {
+            margin: 1em;
+        }
+
+        input {
+            width: 100%;
+        }
+
+        #container {
+            background-color: lightgray;
+            width: 800px;
+            margin: 0 auto;
         }
     </style>
 </head>
 <body>
 <h1>Welcome To My Map</h1>
 
-<div class="container d-flex"><!--    <div class="row">-->
+<div id="container" class="d-flex">
 <div id="map"></div>
 
-    <div id="controls">
+    <div id="controls" class=" d-flex flex-column text-center">
+        <div id="zoom">
 <label for="change-zoom">Change zoom level</label>
 <select name="change-zoom" id="change-zoom">
     <option value="5" >5</option>
@@ -37,13 +52,15 @@
     <option value="20">20</option>
     <option value="reset">Reset</option>
 </select>
+        </div>
 
-<button id="toggle-markers" class="shown">Hide All Markers</button>
+<button id="toggle-markers" class="shown btn btn-secondary">Hide All Markers</button>
 
-<label for="search">Mark a Location</label>
+        <div id="search-area">
+<label for="search" class="d-block">Mark a Location</label>
 <input type="text" id="search" placeholder="Enter Address Here">
     </div>
-<!--    </div>-->
+    </div>
 </div>
 
 
