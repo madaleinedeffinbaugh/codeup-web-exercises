@@ -31,6 +31,9 @@
 
 <button id="toggle-markers" class="shown">Hide All Markers</button>
 
+<label for="search">Mark a Location</label>
+<input type="text" id="search" placeholder="Enter Address Here">
+
 
 
 <!--Jquery-->
@@ -105,7 +108,7 @@
     //store all current markers
     var markers = [];
 
-    //function to place marker and popup
+    //function to place marker and popup with extra information
     function placeMarkerAndPopup(info, token, map) {
         geocode(info.address, token).then(function(coordinates) {
             var popup = new mapboxgl.Popup()
@@ -114,6 +117,15 @@
                 .setLngLat(coordinates)
                 .addTo(map)
             marker.setPopup(popup);
+            markers.push(marker);
+        });
+    }
+
+    function placeMarker(info, token, map) {
+        geocode(info, token).then(function(coordinates) {
+            var marker = new mapboxgl.Marker()
+                .setLngLat(coordinates)
+                .addTo(map)
             markers.push(marker);
         });
     }
@@ -137,6 +149,15 @@
             })
             $(this).addClass('shown');
             $(this).text('Hide All Markers')
+        }
+    })
+
+    //get user input from search bar and add to map
+    $('#search').keyup(function(event) {
+        if(event.key === "Enter") {
+            var address = $(this).val();
+            placeMarker(address, MAPBOX_KEY, map);
+            $(this).val('');
         }
     })
 
