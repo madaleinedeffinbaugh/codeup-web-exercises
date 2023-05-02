@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <!-- Mapbox JS -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js'></script>
+<!--    fontawesomee-->
+    <script src="https://kit.fontawesome.com/376cc6886e.js" crossorigin="anonymous"></script>
     <!-- Mapbox CSS -->
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css' rel='stylesheet'/>
     <!--Bootstrap-->
@@ -13,21 +13,38 @@
     <style>
         #map {
             margin: 1em auto;
+            /*height: calc(100% - 10em);*/
             height: 300px;
             width: calc(100% - 2em);
         }
 
+        /*body {*/
+        /*    background: linear-gradient(#f9ddd4, #161c60);*/
+        /*    background-size: cover;*/
+        /*    background-repeat: no-repeat;*/
+        /*    overflow: auto;*/
+        /*}*/
+
         .forecast-container {
             /*border: 1px solid red;*/
             /*margin: 1em;*/
+            overflow: auto;
+        }
+
+        #location {
+            margin: 0;
         }
 
         .forecasts {
             /*min-height: 200px;*/
-            min-width: 250px;
+            min-width: 200px;
             width: 18%;
             /*border: 1px solid black;*/
             margin: 1em;
+        }
+
+        .card-header {
+            font-weight: bolder;
         }
 
         .small-icon {
@@ -35,36 +52,69 @@
             margin: 0;
         }
 
-        /*.card-body {*/
-        /*    background-color: #e8c8d7;*/
-        /*}*/
+        .card-body {
+            /*background-color: #e8c8d7;*/
+            background-color: transparent;
+        }
 
-        /*.card-header, .card-footer {*/
-        /*    background-color: #c05dbc;*/
-        /*}*/
+        .card-header, .card-footer {
+            /*background: linear-gradient(#f9ddd4, #161c60);*/
+            /*background: linear-gradient(#f9ddd4,#787092,#f9ddd4);*/
+            /*background: linear-gradient(#766e91,#404075,#766e91);*/
+/*border: none;*/
+            background-color: transparent;
+            padding: 0;
+        }
 
         .large-icon {
             width: 10%;
         }
 
+        .info p{
+            padding: .25em .5em;
+        }
+        .weathers {
+            height: 100%;
+        }
+
+
+        .three-hour {
+            max-width: 170px;
+            margin: 0 .5em;
+            height: calc(100% - 2em);
+
+            border: 1px solid #eddad8;
+            border-radius: 15px;
+            padding: 1em 0;
+            /*background-color: rgb(125, 124, 125,.2);*/
+            background-color: rgb(76,74,124,.1);
+        }
+
+        /*.three-hour:nth-child(even) {*/
+        /*    !*border: 1px solid white;*!*/
+        /*    border-radius: 15px;*/
+        /*    background-color: rgb(125, 124, 125,.3);*/
+        /*}*/
+
         .three-hour div {
-            margin: 1em 0;
+            max-width: 170px;
+            margin: 0 auto;
             height: calc(100% - 2em);
         }
 
-        /* .background {*/
-        /*     height: 100%;*/
-        /*     width: 100%;*/
-        /*     position: absolute;*/
-        /*     z-index: -3;*/
-        /*    !*background-image: url("./img/cloud.jpeg");*!*/
-        /*    !*background-color: #9b90c5;*!*/
-        /*    !*background: linear-gradient(#f9ddd4, #161c60);*!*/
-        /*    !* background: linear-gradient(#deb5c2, #142f8f);*!*/
+         .background {
+             height: 100%;
+             width: 100%;
+             /*position: absolute;*/
+             /*z-index: -3;*/
+            /*background-image: url("./img/cloud.jpeg");*/
+            /*background-color: #9b90c5;*/
+            background: linear-gradient(#f9ddd4, #161c60);
+            /* background: linear-gradient(#deb5c2, #142f8f);*/
 
-        /*    !*background-repeat: no-repeat;*!*/
-        /*    !*background-size: cover;*!*/
-        /*}*/
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
 
         .center {
             text-align: center;
@@ -72,26 +122,99 @@
 
         .card {
             height: 100%;
+            background-color: transparent;
+            border: none;
         }
 
         .card-body div p {
-            margin: 0;
+            margin: .5em 0;
         }
 
-        .card-body div h4 {
-            margin: 0;
+
+
+        .header {
+            /*margin: 0 1em;*/
+            /*background-color: rgb(125, 124, 125,.2);*/
+            background-color: rgb(76,74,124,.3);
+            /*background-opacity: .5%;*/
         }
+
+        .sun {
+            border-top: 1px solid #8f8c8f;
+            border-bottom: 1px solid #8f8c8f;
+        }
+
+        input {
+            background-color: #f9ddd4;
+            border: 1px solid #31336e;
+            width: 200px;
+            padding-left: .5em;
+            margin-right: .5em;
+        }
+        i {
+            margin-right: .5em;
+            margin-left: .5em;
+        }
+
+        html,body {
+            min-height: 100%;
+            /*background-color: grey;*/
+            /*background: linear-gradient(#f9ddd4, #161c60, #f9ddd4);*/
+            /*background: linear-gradient(#161c60,#f9ddd4, #161c60);*/
+
+        }
+
+        body {
+            background: linear-gradient(#f9ddd4, #161c60);
+
+        }
+
+        /*.three-hour {*/
+        /*    max-height: 160px;*/
+        /*}*/
+        .medium-icon {
+            width: 15%;
+        }
+        /*@media only screen and (max-width: 600px) {*/
+        /*    body {*/
+        /*        color: red;*/
+        /*    }*/
+        /*}*/
+
+
+
+
     </style>
 </head>
 <body>
-<div class="background"></div>
+
+
+
+
+<!--<div class="background"></div>-->
 <!--header-->
-<div class="d-flex justify-content-between">
-    <input type="text" id="search" placeholder="Enter Place">
-<h4 id="location">Seeing weather for: </h4>
+
+<div class="d-flex justify-content-between px-4 py-2 header">
+    <h2>Weather Map</h2>
+    <div class="d-flex">
+    <div class="d-flex align-items-center search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="search" placeholder="Search for Location">
+    </div>
+    <div class="d-flex align-items-center">
+        <h4 id="location"></h4>
+        <i class="fa-solid fa-location-dot"></i>
+    </div>
+    </div>
+
 </div>
 
-<div class="forecast-container d-flex overflow-auto">
+<!--<div class="main">-->
+<!--    <div class="row">-->
+<!--<div class="d-flex justify-content-center">-->
+<!--&lt;!&ndash;<h3 id="location" class="my-2">Kuna <i class="fa-solid fa-location-dot"></i></h3>&ndash;&gt;-->
+<!--</div>-->
+<div class="forecast-container d-flex mb-3">
     <div id="card-one" class="forecasts flex-grow-1">
         <div></div>
     </div>
@@ -108,11 +231,14 @@
         <div></div>
     </div>
 </div>
+<!--    </div>-->
 
 
 
-
+<!--<div class="row">-->
 <div id="map"></div>
+<!--</div>-->
+</div>
 
 
 <!--Jquery-->
