@@ -197,12 +197,12 @@ function hourlies(day) {
     var html = ``;
     for (var i = 0; i < day.times.length; i++) {
         html += `<div class="col three-hour">
-<!--                            <div class="p-0">-->
+                            <div class="p-0">
                                 <h6 class="m-0">${day.times[i]}</h6>
                                  <img class="small-icon" src="http://openweathermap.org/img/w/${day.icons[i]}.png" alt="weather-icon">
                                 <p>${capitalize(day.description[i])}</p>
                                 <p>${day.temps[i]}&#8457;</p>
-<!--                            </div>-->
+                            </div>
                         </div>`
     }
 
@@ -261,7 +261,7 @@ function addLargeCard(place, day, longDate, date) {
                 </div>
                 <h4 class="my-1 py-3">3 Hour Forecast</h4>
                 <div class="hourly">
-                    <div class="row d-flex justify-content-center">
+                    <div class="row d-flex justify-content-center flex-nowrap overflow-auto">
                         ${hourlies(day)}
                     </div>
                 </div>
