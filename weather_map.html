@@ -16,23 +16,25 @@
             width: 100%;
         }
 
-        .forecasts {
-            width: 100%;
-            /*height: 400px;*/
-            background-color: grey;
-            margin-top: 3em;
-            overflow: auto;
-        }
-        .days {
-            /*height: calc(100% - 2em);*/
-            height: 200px;
-            width: calc((100%/5) - 2em);
-            /*width: 20px;*/
-            margin: 1em 1em;
-            border: 1px solid black;
-            background-color: pink;
+        .forecast-container {
+            border: 1px solid red;
+            margin: 1em;
         }
 
+        .forecasts {
+            min-height: 200px;
+            min-width: 200px;
+            border: 1px solid black;
+            margin: 1em;
+        }
+
+        /*.card-body p {*/
+        /*    margin: 0;*/
+        /*}*/
+
+        .card-body div {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -40,19 +42,83 @@
 <!--header-->
 
 
-<div class="container">
-    <div class="forecasts d-flex flex-nowrap justify-content-center row">
-        <div class="days col-2"></div>
-        <div class="days col-2"></div>
-        <div class="days col-2"></div>
-        <div class="days col-2"></div>
-        <div class="days col-2"></div>
-<!--        <div class="days col-2"></div>-->
-<!--        <div class="days col-2"></div>-->
+<!--<div class="container">-->
+<div class="forecast-container d-flex overflow-auto">
+    <div class="forecasts flex-grow-1">
+        <div class="card">
+            <div class="card-header text-center">
+                2023-05-03
+            </div>
+            <div class="card-body">
+                <div>
+                    <p class="m-0">67.3/80.5</p>
+                    <h2>icon</h2>
+                    <h4>Forecasted Average Weather</h4>
+                </div>
+                <p><strong>Description:</strong> cloudy</p>
+                <p>Humidity: 55</p>
+                <p>Wind: 34</p>
+                <p>Pressure: 45</p>
+            </div>
+            <div class="card-footer d-flex justify-content-end">
+                <button class="btn view">View More</button>
+            </div>
+        </div>
     </div>
-
-
+    <div class="forecasts  flex-grow-1">
+        <div class="card">
+            <div class="card-header">
+                2023-05-03
+            </div>
+            <div class="card-body">
+                <p>icon</p>
+                <p>weather</p>
+                <p>weather</p>
+                <p>weather</p>
+            </div>
+        </div>
+    </div>
+    <div class="forecasts flex-grow-1">
+        <div class="card">
+            <div class="card-header">
+                Date
+            </div>
+            <div class="card-body">
+                <p>icon</p>
+                <p>weather</p>
+                <p>weather</p>
+                <p>weather</p>
+            </div>
+        </div>
+    </div>
+    <div class="forecasts flex-grow-1">
+        <div class="card">
+            <div class="card-header">
+                Date
+            </div>
+            <div class="card-body">
+                <p>icon</p>
+                <p>weather</p>
+                <p>weather</p>
+                <p>weather</p>
+            </div>
+        </div>
+    </div>
+    <div class="forecasts flex-grow-1">
+        <div class="card">
+            <div class="card-header">
+                Date
+            </div>
+            <div class="card-body">
+                <p>icon</p>
+                <p>weather</p>
+                <p>weather</p>
+                <p>weather</p>
+            </div>
+        </div>
+    </div>
 </div>
+<!--</div>-->
 
 
 <!--<input type="text" id="search" placeholder="Enter Place">-->
