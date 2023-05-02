@@ -147,3 +147,110 @@ forecastWeather(-116.444975,43.484744);
 
 
 
+// <!--<script>-->
+// <!--    //starting points-->
+// <!--    var startingZoom = 12;-->
+// <!--    var startLat = 43.484744;-->
+// <!--    var startLon = -116.444975;-->
+//
+// <!--    //creating map-->
+// <!--    mapboxgl.accessToken = MAPBOX_KEY;-->
+// <!--    const map = new mapboxgl.Map({-->
+// <!--        container: 'map',-->
+// <!--        style: 'mapbox://styles/mapbox/dark-v11',-->
+// <!--        center: [startLon, startLat], // [lng, lat]-->
+// <!--        zoom: startingZoom-->
+// <!--    });-->
+//
+// <!--    map.doubleClickZoom.disable();-->
+//
+// <!--    //center map on idaho-->
+// <!--    geocode("Kuna, Idaho", MAPBOX_KEY).then(function (result) {-->
+// <!--        map.setCenter(result);-->
+// <!--    });-->
+//
+// <!--    var marker;-->
+// <!--    placeMarkerGeocode('Kuna, Idaho', MAPBOX_KEY, map);-->
+//
+// <!--    //place marker-->
+// <!--    function placeMarkerGeocode(info, token, map) {-->
+// <!--        geocode(info, token).then(function (coordinates) {-->
+// <!--            marker = new mapboxgl.Marker()-->
+// <!--                .setLngLat(coordinates)-->
+// <!--                .addTo(map)-->
+// <!--            // markers.push(marker);-->
+// <!--            map.setCenter(coordinates);-->
+// <!--            // console.log('coords' + coordinates)-->
+// <!--            // console.log(typeof coordinates)-->
+// <!--            // console.log(coordinates)-->
+// <!--        });-->
+// <!--    }-->
+//
+//
+// <!--    function placeMarkerCoordinates(longlat, token, map) {-->
+// <!--        var coordinates = longlat;-->
+// <!--            marker = new mapboxgl.Marker()-->
+// <!--                .setLngLat(coordinates)-->
+// <!--                .addTo(map)-->
+// <!--            map.setCenter(coordinates);-->
+// <!--            //cords are lon first-->
+// <!--            // console.log("coords" + coordinates)-->
+// <!--    }-->
+//
+//
+//
+//
+//
+//
+// <!--    //change marker on double click-->
+// <!--    map.on('dblclick', (e) => {-->
+// <!--        marker.remove();-->
+// <!--        var lonLat = [e.lngLat.lng, e.lngLat.lat];-->
+// <!--        placeMarkerCoordinates(lonLat, MAPBOX_KEY, map);-->
+// <!--    });-->
+//
+//
+// <!--    //change marker location on search-->
+// <!--    $('#search').keyup(function(e) {-->
+// <!--        if (e.key === "Enter") {-->
+// <!--            var address = $(this).val();-->
+// <!--            // console.log(address);-->
+// <!--            geocode(address, MAPBOX_KEY).then(function (result) {-->
+// <!--                // console.log(result)-->
+// <!--            });-->
+// <!--            marker.remove();-->
+// <!--            placeMarkerGeocode(address, MAPBOX_KEY, map);-->
+// <!--        }-->
+// <!--    })-->
+//
+//
+// <!--// &lt;!&ndash;    current weather&ndash;&gt;-->
+// <!--// $.get("http://api.openweathermap.org/data/2.5/weather", {-->
+// <!--//     APPID: OPEN_WEATHER_KEY,-->
+// <!--//     // q:     "Kuna, US"-->
+// <!--//     lat:   43.484744,-->
+// <!--//     lon:   -116.444975,-->
+// <!--//-->
+// <!--// }).done(function(data) {-->
+// <!--//     console.log(data);-->
+// <!--//     console.log("temp" + data.main.temp);-->
+// <!--//     console.log("humidty" + data.main.humidity);-->
+// <!--//     console.log("description" + data.weather[0].description);-->
+// <!--//     console.log("speed" + data.wind.speed);-->
+// <!--//     console.log("pressure" + data.main.pressure);-->
+// <!--//     console.log("-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;")-->
+// <!--// });-->
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// <!--</script>-->
