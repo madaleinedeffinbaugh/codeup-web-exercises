@@ -12,117 +12,107 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
         #map {
-            height: 500px;
-            width: 100%;
+            margin: 1em auto;
+            height: 300px;
+            width: calc(100% - 2em);
         }
 
         .forecast-container {
-            border: 1px solid red;
-            margin: 1em;
+            /*border: 1px solid red;*/
+            /*margin: 1em;*/
         }
 
         .forecasts {
-            min-height: 200px;
-            min-width: 200px;
-            border: 1px solid black;
+            /*min-height: 200px;*/
+            min-width: 250px;
+            width: 18%;
+            /*border: 1px solid black;*/
             margin: 1em;
         }
 
-        /*.card-body p {*/
-        /*    margin: 0;*/
+        .small-icon {
+            width: 50%;
+            margin: 0;
+        }
+
+        /*.card-body {*/
+        /*    background-color: #e8c8d7;*/
         /*}*/
 
-        .card-body div {
+        /*.card-header, .card-footer {*/
+        /*    background-color: #c05dbc;*/
+        /*}*/
+
+        .large-icon {
+            width: 10%;
+        }
+
+        .three-hour div {
+            margin: 1em 0;
+            height: calc(100% - 2em);
+        }
+
+        /* .background {*/
+        /*     height: 100%;*/
+        /*     width: 100%;*/
+        /*     position: absolute;*/
+        /*     z-index: -3;*/
+        /*    !*background-image: url("./img/cloud.jpeg");*!*/
+        /*    !*background-color: #9b90c5;*!*/
+        /*    !*background: linear-gradient(#f9ddd4, #161c60);*!*/
+        /*    !* background: linear-gradient(#deb5c2, #142f8f);*!*/
+
+        /*    !*background-repeat: no-repeat;*!*/
+        /*    !*background-size: cover;*!*/
+        /*}*/
+
+        .center {
             text-align: center;
+        }
+
+        .card {
+            height: 100%;
+        }
+
+        .card-body div p {
+            margin: 0;
+        }
+
+        .card-body div h4 {
+            margin: 0;
         }
     </style>
 </head>
 <body>
-
+<div class="background"></div>
 <!--header-->
+<div class="d-flex justify-content-between">
+    <input type="text" id="search" placeholder="Enter Place">
+<h4 id="location">Seeing weather for: </h4>
+</div>
 
-
-<!--<div class="container">-->
 <div class="forecast-container d-flex overflow-auto">
-    <div class="forecasts flex-grow-1">
-        <div class="card">
-            <div class="card-header text-center">
-                2023-05-03
-            </div>
-            <div class="card-body">
-                <div>
-                    <p class="m-0">67.3/80.5</p>
-                    <h2>icon</h2>
-                    <h4>Forecasted Average Weather</h4>
-                </div>
-                <p><strong>Description:</strong> cloudy</p>
-                <p>Humidity: 55</p>
-                <p>Wind: 34</p>
-                <p>Pressure: 45</p>
-            </div>
-            <div class="card-footer d-flex justify-content-end">
-                <button class="btn view">View More</button>
-            </div>
-        </div>
+    <div id="card-one" class="forecasts flex-grow-1">
+        <div></div>
     </div>
-    <div class="forecasts  flex-grow-1">
-        <div class="card">
-            <div class="card-header">
-                2023-05-03
-            </div>
-            <div class="card-body">
-                <p>icon</p>
-                <p>weather</p>
-                <p>weather</p>
-                <p>weather</p>
-            </div>
-        </div>
+    <div id="card-two" class="forecasts flex-grow-1">
+        <div></div>
     </div>
-    <div class="forecasts flex-grow-1">
-        <div class="card">
-            <div class="card-header">
-                Date
-            </div>
-            <div class="card-body">
-                <p>icon</p>
-                <p>weather</p>
-                <p>weather</p>
-                <p>weather</p>
-            </div>
-        </div>
+    <div id="card-three" class="forecasts flex-grow-1">
+        <div></div>
     </div>
-    <div class="forecasts flex-grow-1">
-        <div class="card">
-            <div class="card-header">
-                Date
-            </div>
-            <div class="card-body">
-                <p>icon</p>
-                <p>weather</p>
-                <p>weather</p>
-                <p>weather</p>
-            </div>
-        </div>
+    <div id="card-four" class="forecasts flex-grow-1">
+        <div></div>
     </div>
-    <div class="forecasts flex-grow-1">
-        <div class="card">
-            <div class="card-header">
-                Date
-            </div>
-            <div class="card-body">
-                <p>icon</p>
-                <p>weather</p>
-                <p>weather</p>
-                <p>weather</p>
-            </div>
-        </div>
+    <div id="card-five" class="forecasts flex-grow-1">
+        <div></div>
     </div>
 </div>
-<!--</div>-->
 
 
-<!--<input type="text" id="search" placeholder="Enter Place">-->
-<!--<div id="map"></div>-->
+
+
+<div id="map"></div>
 
 
 <!--Jquery-->
