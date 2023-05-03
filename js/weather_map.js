@@ -372,18 +372,18 @@ function largeButtonActions(cardNo, forecastDay, longDate, date) {
 }
 
 function capitalize(words) {
-    // var separatedWords = words.split(" ");
-    // var capitalized = [];
-    // // console.log(word);
-    // separatedWords.forEach(function(word) {
-    //     var brokenWord = word.split("");
-    //     brokenWord[0] = brokenWord[0].toUpperCase();
-    //     capitalized.push(brokenWord.join(""));
-    // })
-    //
-    // return capitalized.join(" ");
-    // console.log(capitalized)
-    return words;
+    var separatedWords = words.split(" ");
+    var capitalized = [];
+    // console.log(word);
+    separatedWords.forEach(function(word) {
+        var brokenWord = word.split("");
+        brokenWord[0] = brokenWord[0].toUpperCase();
+        capitalized.push(brokenWord.join(""));
+    })
+
+    return capitalized.join(" ");
+    console.log(capitalized)
+    // return words;
 }
 
 
