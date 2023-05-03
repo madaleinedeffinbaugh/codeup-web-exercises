@@ -401,8 +401,10 @@ var startLon = -116.444975;
 mapboxgl.accessToken = MAPBOX_KEY;
 const map = new mapboxgl.Map({
     container: 'map',
+    //purple
     // style: 'mapbox://styles/madaleinedeffinbaugh/clh6he5oq00a401pwdwleaazj',
-    style: 'mapbox://styles/madaleinedeffinbaugh/clh6he5oq00a401pwdwleaazj',
+    //red mapbox://styles/madaleinedeffinbaugh/clh7vyivy00ax01pwg6559g0x
+    style: 'mapbox://styles/madaleinedeffinbaugh/clh7vyivy00ax01pwg6559g0x',
     center: [startLon, startLat], // [lng, lat]
     zoom: startingZoom
 });
