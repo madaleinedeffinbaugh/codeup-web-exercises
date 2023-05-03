@@ -224,7 +224,7 @@ function mostFrequent(arr) {
 function hourlies(day) {
     var html = ``;
     for (var i = 0; i < day.times.length; i++) {
-        html += `<div class="col three-hour">
+        html += `<div class="col three-hour red-weather">
                             <div class="p-0">
                                 <h6 class="m-0">${displayTime(day.times[i])}</h6>
                                  <img class="small-icon" src="http://openweathermap.org/img/w/${day.icons[i]}.png" alt="weather-icon">
@@ -398,7 +398,9 @@ $('#slider').click(function() {
         $('#search').removeClass('search-red');
         $('#search').addClass('search-purple');
         $('#header').removeClass('header-red');
-        $('#header').addClass('header-purple')
+        $('#header').addClass('header-purple');
+        $('.three-hour').removeClass('red-weather');
+        $('.three-hour').addClass('purple-weather')
     } else {
         $('body').removeClass('body-bg-purple');
         $('body').addClass('body-bg-red');
@@ -406,7 +408,9 @@ $('#slider').click(function() {
         $('#search').addClass('search-red');
         map.setStyle("mapbox://styles/madaleinedeffinbaugh/clh7vyivy00ax01pwg6559g0x")
         $('#header').removeClass('header-purple');
-        $('#header').addClass('header-red')
+        $('#header').addClass('header-red');
+        $('.three-hour').removeClass('purple-weather');
+        $('.three-hour').addClass('purple-weather')
     }
 })
 
