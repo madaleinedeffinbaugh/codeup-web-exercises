@@ -114,7 +114,7 @@ function forecastWeather(longitude, latitude) {
     });
 }
 
-function displayTime(time) {
+function displayTime(time){
     var headerTime = time.slice(0,2);
     var endTime = time.slice(3,5);
     var suffix = headerTime >= 12 ? "P.M.":"A.M.";
@@ -122,12 +122,15 @@ function displayTime(time) {
     if(headerTime >=13) {
         var newHeaderTime = headerTime%12;
         return (`${newHeaderTime}:${endTime} ${suffix}`)
-    } else {
+    } else if(headerTime == '00') {
+        return (`12:${endTime} ${suffix}`)
+    }
+    else {
         return (`${headerTime}:${endTime} ${suffix}`)
     }
 }
 
-displayTime("13:23:12");
+// displayTime("13:23:12");
 
 function createCurrentDayData(data) {
         return {
@@ -223,7 +226,7 @@ function hourlies(day) {
     for (var i = 0; i < day.times.length; i++) {
         html += `<div class="col three-hour">
                             <div class="p-0">
-                                <h6 class="m-0">${day.times[i]}</h6>
+                                <h6 class="m-0">${displayTime(day.times[i])}</h6>
                                  <img class="small-icon" src="http://openweathermap.org/img/w/${day.icons[i]}.png" alt="weather-icon">
                                 <p>${capitalize(day.description[i])}</p>
                                 <p>${day.temps[i]}&#8457;</p>
