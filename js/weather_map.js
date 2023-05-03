@@ -235,6 +235,12 @@ function hourlies(day) {
 }
 
 function addRegCard(day, date, longDate, place) {
+    var button = `<button class="btn view-more ${place}">View More</button>`;
+
+    if(place == 'card-one' ){
+        var button = `<button class="btn view-more ${place}" disabled>View More</button>`
+    }
+
     var regularCardTemplate = `<div class="card">
             <div class="card-header text-center">
                 <h4>${longDate.toString().slice(0,10)}</h4>
@@ -253,8 +259,8 @@ function addRegCard(day, date, longDate, place) {
                 <p><strong>Pressure: </strong>${day.averagePressure.toFixed(0)} hPa</p>
                 </div>
             </div>
-            <div class="card-footer p-0 d-flex justify-content-end">
-                <button class="btn view-more ${place}">View More</button>
+           <div class="card-footer p-0 d-flex justify-content-end">
+                ${button}
             </div>
         </div>`
 
@@ -270,12 +276,13 @@ function addLargeCard(place, day, longDate, date) {
                 <div>
                     <p class="m-0"${day.minTemp}&#8457; / ${day.maxTemp}&#8457;</p>
 <!--                   <img class="large-icon" src="http://openweathermap.org/img/w/${day.averageIcon}.png" alt="weather-icon">-->
-               <h3 class="m-0">Average For the Day</h3>
+               <h3 class="m-0">Average For the Day </h3>
+               <img class="medium-icon" src="http://openweathermap.org/img/w/${day.averageIcon}.png" alt="weather-icon">
                 </div>
                 <div class="d-flex flex-wrap justify-content-evenly mt-3 info">
                     <p><strong>Temperature: </strong>${day.averageTemp.toFixed(2)}&#8457;</p>
                     <p><strong>Feels Like: </strong>${day.averageFeelsLike.toFixed(2)}&#8457;</p>
-                    <p><strong>Description: </strong>${capitalize(day.averageDescription)} <img class="medium-icon" src="http://openweathermap.org/img/w/${day.averageIcon}.png" alt="weather-icon"></p>
+                    <p><strong>Description: </strong>${capitalize(day.averageDescription)}</p>
                     <p><strong>Humidity: </strong>${day.averageHumidity.toFixed(2)}%</p>
                     <p><strong>Wind: </strong>${day.averageSpeed.toFixed(2)}mph</p>
                     <p><strong>Pressure: </strong>${day.averagePressure} hPa</p>
