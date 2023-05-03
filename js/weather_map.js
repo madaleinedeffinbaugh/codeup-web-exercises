@@ -28,6 +28,28 @@ var fifthDayForecast;
 //calling forecast weather on my hometown first
 forecastWeather(-116.444975, 43.484744);
 
+function currentWeather(longitude,latitude) {
+    $.get("http://api.openweathermap.org/data/2.5/weather", {
+        APPID: OPEN_WEATHER_KEY,
+        lat: latitude,
+        lon: longitude,
+        units: 'imperial'
+    }).done(function (data) {
+        console.log("current")
+        console.log(data);
+        $('#location').html(`${data.name}`);
+        //
+        clearCards();
+        // //today
+        todayForecast = createCurrentDayData(data);
+        console.log(todayForecast)
+        addRegCard(todayForecast, todayConverted, today,"card-one");
+    });
+
+}
+
+currentWeather(-116.444975, 43.484744);
+
 function convertDate(dateTime) {
     let unix_timestamp = dateTime;
     var date = new Date(unix_timestamp * 1000);
@@ -62,14 +84,7 @@ function forecastWeather(longitude, latitude) {
         units: 'imperial'
     }).done(function (data) {
         console.log('5 day forecast', data);
-        $('#location').html(`${data.city.name}`);
 
-        clearCards();
-        // //today
-        todayForecast = createDayData(data)
-        setDayInfo(todayForecast, todayConverted, data);
-        manipulateData(todayForecast);
-        addRegCard(todayForecast, todayConverted, today,"card-one");
 
         //tomorrow
         tomorrowsForecast = createDayData(data)
@@ -114,10 +129,20 @@ function displayTime(time) {
 
 displayTime("13:23:12");
 
+function createCurrentDayData(data) {
+        return {
+            minTemp: data.main.temp_min,
+            maxTemp: data.main.temp_max,
+            averageDescription: data.weather[0].description,
+            averageIcon: data.weather[0].icon,
+            averageSpeed: data.wind.speed,
+            averagePressure: data.main.pressure,
+            averageHumidity: data.main.humidity
+        }
+
+}
 function createDayData(data) {
     return {
-        city: data.city.name,
-        country: data.city.country,
         sunrise: data.city.sunrise,
         sunset: data.city.sunset,
         times: [],
@@ -367,7 +392,7 @@ mapboxgl.accessToken = MAPBOX_KEY;
 const map = new mapboxgl.Map({
     container: 'map',
     // style: 'mapbox://styles/madaleinedeffinbaugh/clh6he5oq00a401pwdwleaazj',
-    style: 'mapbox://styles/madaleinedeffinbaugh/clh6he5oq00a401pwdwleaazj/draft',
+    style: 'mapbox://styles/madaleinedeffinbaugh/clh6he5oq00a401pwdwleaazj',
     center: [startLon, startLat], // [lng, lat]
     zoom: startingZoom
 });
