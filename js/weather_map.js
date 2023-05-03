@@ -390,12 +390,34 @@ function capitalize(words) {
 }
 
 
+$('#slider').click(function() {
+    if($('body').hasClass('body-bg-red')) {
+        $('body').removeClass('body-bg-red');
+        $('body').addClass('body-bg-purple');
+        map.setStyle("mapbox://styles/madaleinedeffinbaugh/clh6he5oq00a401pwdwleaazj");
+        $('#search').removeClass('search-red');
+        $('#search').addClass('search-purple');
+        $('#header').removeClass('header-red');
+        $('#header').addClass('header-purple')
+    } else {
+        $('body').removeClass('body-bg-purple');
+        $('body').addClass('body-bg-red');
+        $('#search').removeClass('search-purple');
+        $('#search').addClass('search-red');
+        map.setStyle("mapbox://styles/madaleinedeffinbaugh/clh7vyivy00ax01pwg6559g0x")
+        $('#header').removeClass('header-purple');
+        $('#header').addClass('header-red')
+    }
+})
 
 
 //starting points
 var startingZoom = 12;
 var startLat = 43.484744;
 var startLon = -116.444975;
+
+var mapstyle = "mapbox://styles/madaleinedeffinbaugh/clh7vyivy00ax01pwg6559g0x"
+
 
 //creating map
 mapboxgl.accessToken = MAPBOX_KEY;
