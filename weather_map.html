@@ -137,7 +137,7 @@
 
 
 
-        .header {
+        .header-red {
             /*margin: 0 1em;*/
             /*background-color: rgb(125, 124, 125,.2);*/
             /*purple*/
@@ -147,21 +147,35 @@
             /*background-opacity: .5%;*/
         }
 
+        .header-purple {
+            background-color: rgb(76,74,124,.3);
+        }
+
         .sun {
             border-top: 1px solid #8f8c8f;
             border-bottom: 1px solid #8f8c8f;
         }
 
-        input {
+        #search {
             /*purple*/
-            /*background-color: #f9ddd4;*/
+
             /*red*/
-            background-color: #f5e287;
+
             border: 1px solid #31336e;
             width: 200px;
             padding-left: .5em;
             margin-right: .5em;
         }
+
+        .search-red {
+            background-color: #f5e287;
+        }
+        .search-purple {
+            background-color: #f9ddd4;
+        }
+
+
+
         i {
             margin-right: .5em;
             margin-left: .5em;
@@ -175,15 +189,18 @@
 
         }
 
-        body {
-            /*background: linear-gradient(#f9ddd4, #161c60);*/
+        .body-bg-purple {
+            background: linear-gradient(#f9ddd4, #161c60);
+        }
+
+        .body-bg-red {
             background: linear-gradient(#ffe000, #9a1301);
         }
 
 
         /*marker color*/
         path {
-            fill: #2a2d6a;
+            fill: #000000;
         }
 
 
@@ -207,8 +224,8 @@
         .switch {
             position: relative;
             display: inline-block;
-            width: 60px;
-            height: 34px;
+            width: 30px;
+            height: 17px;
         }
 
         /* Hide default HTML checkbox */
@@ -226,7 +243,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #ccc;
+            background-color: #f5cb01;
             -webkit-transition: .4s;
             transition: .4s;
         }
@@ -234,17 +251,17 @@
         .slider:before {
             position: absolute;
             content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
+            height: 13px;
+            width: 13px;
+            left: 2px;
+            bottom: 2px;
             background-color: white;
             -webkit-transition: .4s;
             transition: .4s;
         }
 
         input:checked + .slider {
-            background-color: #2196F3;
+            background-color: #383971;
         }
 
         /*input:focus + .slider {*/
@@ -252,9 +269,9 @@
         /*}*/
 
         input:checked + .slider:before {
-            -webkit-transform: translateX(26px);
-            -ms-transform: translateX(26px);
-            transform: translateX(26px);
+            -webkit-transform: translateX(13px);
+            -ms-transform: translateX(13px);
+            transform: translateX(13px);
         }
 
         /* Rounded sliders */
@@ -270,7 +287,7 @@
 
     </style>
 </head>
-<body>
+<body class="body-bg-red">
 
 
 
@@ -278,16 +295,21 @@
 <!--<div class="background"></div>-->
 <!--header-->
 
-<div class="d-flex justify-content-between px-4 py-2 header">
-    <h2>Weather Map</h2>
-<!--    <label class="switch">-->
-<!--        <input type="checkbox">-->
-<!--        <span class="slider round"></span>-->
-<!--    </label>-->
+<div class="d-flex justify-content-between px-4 py-2 header-red" id="header">
+    <div class="d-flex align-items-center">
+        <h2 class="my-0 mx-2">Weather Map</h2>
+        <div id="toggle" class="d-flex align-items-center">
+            <p class="p-0 my-0 mx-2">Theme</p>
+            <label class="switch">
+                <input id="slider" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
     <div class="d-flex">
     <div class="d-flex align-items-center search">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="search" placeholder="Search for Location">
+        <input type="text" id="search" class="search-red" placeholder="Search for Location">
     </div>
     <div class="d-flex align-items-center">
         <h4 id="location"></h4>
