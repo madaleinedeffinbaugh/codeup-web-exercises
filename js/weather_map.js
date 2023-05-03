@@ -25,7 +25,9 @@ var thirdDayForecast;
 var fourthDayForecast;
 var fifthDayForecast;
 
+
 //calling forecast weather on my hometown first
+currentWeather(-116.444975, 43.484744);
 forecastWeather(-116.444975, 43.484744);
 
 function currentWeather(longitude,latitude) {
@@ -39,7 +41,8 @@ function currentWeather(longitude,latitude) {
         console.log(data);
         $('#location').html(`${data.name}`);
         //
-        clearCards();
+        // clearCards();
+        // $('#card-two').removeClass('d-none')
         // //today
         todayForecast = createCurrentDayData(data);
         console.log(todayForecast)
@@ -48,7 +51,14 @@ function currentWeather(longitude,latitude) {
 
 }
 
-currentWeather(-116.444975, 43.484744);
+
+function displayAll(){
+    var cards = ['card-one', 'card-two', 'card-three', 'card-four','card-five',];
+    cards.forEach(function(card) {
+        $(`#${card}`).removeClass('d-none')
+    })
+
+}
 
 function convertDate(dateTime) {
     let unix_timestamp = dateTime;
@@ -68,13 +78,7 @@ function convertTime(dateTime) {
     return date.toString().slice(16, 24);
 }
 
-function clearCards() {
-    $('#card-one').html('');
-    $('#card-two').html('');
-    $('#card-three').html('');
-    $('#card-four').html('');
-    $('#card-five').html('');
-}
+
 
 function forecastWeather(longitude, latitude) {
     $.get("http://api.openweathermap.org/data/2.5/forecast", {
@@ -343,9 +347,6 @@ function regButtonActions(cardNo, forecastDay, longDate,date) {
 }
 
 function buttonLargeListeners() {
-    $('button.card-one').click(function () {
-        largeButtonActions('card-one', todayForecast, today, todayConverted);
-    });
     $('button.card-two').click(function () {
         largeButtonActions('card-two', tomorrowsForecast, tomorrow, tomorrowConverted);
     });
@@ -394,7 +395,9 @@ $('#slider').click(function() {
     if($('body').hasClass('body-bg-red')) {
         $('body').removeClass('body-bg-red');
         $('body').addClass('body-bg-purple');
-        map.setStyle("mapbox://styles/madaleinedeffinbaugh/clh6he5oq00a401pwdwleaazj");
+        // map.setStyle("mapbox://styles/madaleinedeffinbaugh/clh6he5oq00a401pwdwleaazj");
+        // map.setStyle("mapbox://styles/madaleinedeffinbaugh/clh81u5ka00b501podapd4brb");
+        map.setStyle("mapbox://styles/madaleinedeffinbaugh/clh83tlok00ba01oh7vos9y2u/draft")
         $('#search').removeClass('search-red');
         $('#search').addClass('search-purple');
         $('#header').removeClass('header-red');
@@ -406,7 +409,8 @@ $('#slider').click(function() {
         $('body').addClass('body-bg-red');
         $('#search').removeClass('search-purple');
         $('#search').addClass('search-red');
-        map.setStyle("mapbox://styles/madaleinedeffinbaugh/clh7vyivy00ax01pwg6559g0x")
+        // map.setStyle("mapbox://styles/madaleinedeffinbaugh/clh817m1400b501pph9gu8gdi/draft")
+        map.setStyle("mapbox://styles/madaleinedeffinbaugh/clh830ofy00az01r5d24whnuy")
         $('#header').removeClass('header-purple');
         $('#header').addClass('header-red');
         $('.three-hour').removeClass('purple-weather');
@@ -420,7 +424,7 @@ var startingZoom = 12;
 var startLat = 43.484744;
 var startLon = -116.444975;
 
-var mapstyle = "mapbox://styles/madaleinedeffinbaugh/clh7vyivy00ax01pwg6559g0x"
+// var mapstyle = "mapbox://styles/madaleinedeffinbaugh/clh7vyivy00ax01pwg6559g0x"
 
 
 //creating map
@@ -430,7 +434,7 @@ const map = new mapboxgl.Map({
     //purple
     // style: 'mapbox://styles/madaleinedeffinbaugh/clh6he5oq00a401pwdwleaazj',
     //red mapbox://styles/madaleinedeffinbaugh/clh7vyivy00ax01pwg6559g0x
-    style: 'mapbox://styles/madaleinedeffinbaugh/clh7vyivy00ax01pwg6559g0x',
+    style: 'mapbox://styles/madaleinedeffinbaugh/clh830ofy00az01r5d24whnuy/draft',
     center: [startLon, startLat], // [lng, lat]
     zoom: startingZoom
 });
@@ -477,7 +481,9 @@ map.on('dblclick', (e) => {
     marker.remove();
     var lonLat = [e.lngLat.lng, e.lngLat.lat];
     placeMarkerCoordinates(lonLat, MAPBOX_KEY, map);
+    currentWeather(e.lngLat.lng, e.lngLat.lat)
     forecastWeather(e.lngLat.lng, e.lngLat.lat);
+
 });
 
 
@@ -486,6 +492,7 @@ $('#search').keyup(function (e) {
     if (e.key === "Enter") {
         var address = $(this).val();
         geocode(address, MAPBOX_KEY).then(function (result) {
+            currentWeather(result[0], result[1]);
             forecastWeather(result[0], result[1]);
         });
         marker.remove();
