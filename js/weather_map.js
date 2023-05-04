@@ -48,6 +48,10 @@
 
     //placing initial marker
     placeMarkerGeocode('Kuna, Idaho', MAPBOX_KEY, map);
+    geocode('Kuna, Idaho', MAPBOX_KEY).then(function (coordinates) {
+        map.setCenter(coordinates);
+    });
+
 
     map.on('dblclick', (e) => {
         //change marker on double click and update weather
@@ -96,7 +100,6 @@
             marker = new mapboxgl.Marker()
                 .setLngLat(coordinates)
                 .addTo(map)
-            map.setCenter(coordinates);
         });
     }
 
@@ -106,7 +109,6 @@
         marker = new mapboxgl.Marker()
             .setLngLat(coordinates)
             .addTo(map)
-        map.setCenter(coordinates);
     }
 
 
@@ -406,7 +408,6 @@
                    <h5>${day.averageTemp.toFixed(2)}&#8457;</h5>
                     </div>
                     <div class="d-flex flex-wrap justify-content-evenly mt-3 info">
-                        <p><strong>Temperature: </strong>${day.averageTemp.toFixed(2)}&#8457;</p>
                         <p><strong>Feels Like: </strong>${day.averageFeelsLike.toFixed(2)}&#8457;</p>
                         <p><strong>Humidity: </strong>${day.averageHumidity.toFixed(2)}%</p>
                         <p><strong>Wind: </strong>${day.averageSpeed.toFixed(2)}mph</p>
