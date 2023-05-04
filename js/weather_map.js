@@ -35,7 +35,7 @@
     mapboxgl.accessToken = MAPBOX_KEY;
     const map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/madaleinedeffinbaugh/clh830ofy00az01r5d24whnuy/draft',
+        style: 'mapbox://styles/madaleinedeffinbaugh/clh83tlok00ba01oh7vos9y2u',
         center: [-116.444975, 43.484744],
         zoom: 12
     });
@@ -74,7 +74,7 @@
     $('#slider').click(function () {
         //this event switches the red and purple theme
         if ($('body').hasClass('body-bg-red')) {
-            map.setStyle("mapbox://styles/madaleinedeffinbaugh/clh83tlok00ba01oh7vos9y2u/draft");
+            map.setStyle("mapbox://styles/madaleinedeffinbaugh/clh83tlok00ba01oh7vos9y2u");
             $('body').removeClass('body-bg-red').addClass('body-bg-purple');
             $('#search').removeClass('search-red').addClass('search-purple');
             $('#header').removeClass('header-red').addClass('header-purple');
@@ -135,6 +135,7 @@
         return {
             minTemp: data.main.temp_min,
             maxTemp: data.main.temp_max,
+            averageTemp: data.main.temp,
             averageDescription: data.weather[0].description,
             averageIcon: data.weather[0].icon,
             averageSpeed: data.wind.speed,
@@ -340,7 +341,8 @@
                     <div class="text-center">
                         <h4 class="m-0 p-0">${capitalize(day.averageDescription)}</h4>
                         <img class="small-icon" src="http://openweathermap.org/img/w/${day.averageIcon}.png" alt="weather-icon">
-    <p class="mb-3 mt-0">${day.minTemp}&#8457; / ${day.maxTemp}&#8457;</p>
+                        <h5>${day.averageTemp.toFixed(2)}&#8457;</h5>
+                        <p class="mb-3 mt-0">${day.minTemp}&#8457; / ${day.maxTemp}&#8457;</p>
                     </div>
                     <div class="my-1">
                     <p><strong>Humidity: </strong>${day.averageHumidity.toFixed(2)}%</p>
@@ -400,7 +402,8 @@
                         <p class="m-0"${day.minTemp}&#8457; / ${day.maxTemp}&#8457;</p>
                    <h3 class="m-0">Average For the Day </h3>
                    <img class="medium-icon" src="http://openweathermap.org/img/w/${day.averageIcon}.png" alt="weather-icon">
-                   <h4 class="m-0">${capitalize(day.averageDescription)}</h4>
+                   <h4>${capitalize(day.averageDescription)}</h4>
+                   <h5>${day.averageTemp.toFixed(2)}&#8457;</h5>
                     </div>
                     <div class="d-flex flex-wrap justify-content-evenly mt-3 info">
                         <p><strong>Temperature: </strong>${day.averageTemp.toFixed(2)}&#8457;</p>
