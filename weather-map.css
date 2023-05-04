@@ -1,130 +1,55 @@
+html,body {
+    min-height: 100%;
+}
+
+.body-bg-purple {
+    background: linear-gradient(#f9ddd4, #161c60);
+}
+
+.body-bg-red {
+    background: linear-gradient( #fbf6a3, #eca5a5);
+}
+
+.header-red {
+    background-color: #f4d2a4;
+}
+
+.header-purple {
+    background-color: rgb(76,74,124,.3);
+}
+
+#search {
+    border: 1px solid #31336e;
+    width: 200px;
+    padding-left: .5em;
+}
+
+.search-red {
+    background-color: #faf2e8;
+}
+
+.search-purple {
+    background-color: #f9ddd4;
+}
+
+.forecasts {
+    min-width: 200px;
+    width: 18%;
+    margin: 1em;
+}
+
 #map {
     margin: 1em auto;
-    /*height: calc(100% - 10em);*/
     height: 300px;
     width: calc(100% - 2em);
 }
 
-.dark-overlay {
-    position: absolute;
-    background-color: rgb(211, 211, 211);
-    height: 100%;
-    width: 100%;
-    z-index: 9;
-}
-/*body {*/
-/*    background: linear-gradient(#f9ddd4, #161c60);*/
-/*    background-size: cover;*/
-/*    background-repeat: no-repeat;*/
-/*    overflow: auto;*/
-/*}*/
-
-.forecast-container {
-    /*border: 1px solid red;*/
-    /*margin: 1em;*/
-    overflow: auto;
+path {
+    fill: #000000;
 }
 
-#location {
-    margin: 0;
-}
-
-.forecasts {
-    /*min-height: 200px;*/
-    min-width: 200px;
-    width: 18%;
-    /*border: 1px solid black;*/
-    margin: 1em;
-}
-
-.card-header {
-    font-weight: bolder;
-}
-
-.small-icon {
-    width: 50%;
-    margin: 0;
-}
-
-.card-body {
-    /*background-color: #e8c8d7;*/
-    background-color: transparent;
-}
-
-.card-header, .card-footer {
-    /*background: linear-gradient(#f9ddd4, #161c60);*/
-    /*background: linear-gradient(#f9ddd4,#787092,#f9ddd4);*/
-    /*background: linear-gradient(#766e91,#404075,#766e91);*/
-    /*border: none;*/
-    background-color: transparent;
-    padding: 0;
-}
-
-.large-icon {
-    width: 10%;
-}
-
-.info p{
-    padding: .05em .5em;
-}
-.weathers {
-    height: 100%;
-}
-
-
-.three-hour {
-    min-width: 96px;
-    max-width: 170px;
-    margin: 0 .5em;
-    min-height: calc(100% - 2em);
-
-    border: 1px solid #eddad8;
-    border-radius: 15px;
-    padding: 1em 0;
-    /*background-color: rgb(125, 124, 125,.2);*/
-    /*purple*/
-    /*background-color: rgb(76,74,124,.1);*/
-    /*    red*/
-    /*    background-color: rgb(191,96,7,.1);*/
-}
-
-.red-weather {
-    /*background-color: rgb(191,96,7,.1)*/
-    background-color: rgb(237,166,165, .2);
-}
-.purple-weather {
-    background-color: rgb(76,74,124,.1);
-}
-
-/*.three-hour:nth-child(even) {*/
-/*    !*border: 1px solid white;*!*/
-/*    border-radius: 15px;*/
-/*    background-color: rgb(125, 124, 125,.3);*/
-/*}*/
-
-.three-hour div {
-    max-width: 170px;
-    margin: 0 auto;
-    height: calc(100% - 2em);
-}
-
-
-.background {
-    height: 100%;
-    width: 100%;
-    /*position: absolute;*/
-    /*z-index: -3;*/
-    /*background-image: url("./img/cloud.jpeg");*/
-    /*background-color: #9b90c5;*/
-    background: linear-gradient(#f9ddd4, #161c60);
-    /* background: linear-gradient(#deb5c2, #142f8f);*/
-
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.center {
-    text-align: center;
+.card-one {
+    color: transparent;
 }
 
 .card {
@@ -133,28 +58,62 @@
     border: none;
 }
 
+.card-header, .card-footer {
+    background-color: transparent;
+    padding: 0;
+}
+
+.card-header {
+    font-weight: bolder;
+}
+
+.card-body {
+    background-color: transparent;
+}
+
 .card-body div p {
     margin: .5em 0;
 }
 
-
-
-.header-red {
-    /*margin: 0 1em;*/
-    /*background-color: rgb(125, 124, 125,.2);*/
-    /*purple*/
-    /*background-color: rgb(76,74,124,.3);*/
-    /*red*/
-    /*background-color: rgb(158,29,1,.4);*/
-    /*background-color: rgb(236,166,165,.5);*/
-    /*background-opacity: .5%;*/
-    /*background-color: #f3c8a4;*/
-    /*background-color: #f1bfa4;*/
-    background-color: #f4d2a4;
+.small-icon {
+    width: 50%;
+    margin: 0;
 }
 
-.header-purple {
-    background-color: rgb(76,74,124,.3);
+.medium-icon {
+    width: 8%;
+}
+
+.info p{
+    padding: .05em .5em;
+}
+
+.three-hour {
+    min-width: 96px;
+    max-width: 170px;
+    margin: 0 .5em;
+    min-height: calc(100% - 2em);
+    border: 1px solid #eddad8;
+    border-radius: 15px;
+    padding: 1em 0;
+}
+
+.three-hour div {
+    max-width: 170px;
+    margin: 0 auto;
+    height: calc(100% - 2em);
+}
+
+.weathers {
+    height: 100%;
+}
+
+.red-weather {
+    background-color: rgb(237,166,165, .2);
+}
+
+.purple-weather {
+    background-color: rgb(76,74,124,.1);
 }
 
 .sun {
@@ -162,79 +121,23 @@
     border-bottom: 1px solid #8f8c8f;
 }
 
-#search {
-    /*purple*/
-
-    /*red*/
-
-    border: 1px solid #31336e;
-    width: 200px;
-    padding-left: .5em;
-    margin-right: .5em;
-}
-
-.search-red {
-    /*background-color: #f5e287;*/
-    /*background-color: #faf9c6;*/
-    background-color: #faf2e8;
-}
-.search-purple {
-    background-color: #f9ddd4;
-}
 
 
 
-i {
-    margin-right: .5em;
-    margin-left: .5em;
-}
-
-html,body {
-    min-height: 100%;
-    /*background-color: grey;*/
-    /*background: linear-gradient(#f9ddd4, #161c60, #f9ddd4);*/
-    /*background: linear-gradient(#161c60,#f9ddd4, #161c60);*/
-
-}
-
-.body-bg-purple {
-    background: linear-gradient(#f9ddd4, #161c60);
-    /*background: linear-gradient(#f9ddd4, #615c86);*/
-
-}
-
-.body-bg-red {
-    /*background: linear-gradient(#ffe000, #9a1301);*/
-    /*background: linear-gradient( #fbf6a3, #b85832);*/
-
-    background: linear-gradient( #fbf6a3, #eca5a5);
-    /*background: linear-gradient( #fbf6a3, #b95d35);*/
-
-
-}
-
-
-/*marker color*/
-path {
-    fill: #000000;
-}
 
 
 
-/*.three-hour {*/
-/*    max-height: 160px;*/
-/*}*/
-.medium-icon {
-    width: 8%;
-}
-/*@media only screen and (max-width: 600px) {*/
-/*    body {*/
-/*        color: red;*/
-/*    }*/
-/*}*/
-.card-one {
-    color: transparent;
-}
+
+
+
+
+
+
+
+
+
+
+
 
 /* The switch - the box around the slider */
 .switch {
@@ -280,10 +183,6 @@ input:checked + .slider {
     /*background-color: #383971;*/
     background-color: #92859f;
 }
-
-/*input:focus + .slider {*/
-/*    box-shadow: 0 0 1px #2196F3;*/
-/*}*/
 
 input:checked + .slider:before {
     -webkit-transform: translateX(13px);

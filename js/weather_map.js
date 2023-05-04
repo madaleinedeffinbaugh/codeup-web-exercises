@@ -337,7 +337,7 @@
                     <h4>${date.toString().slice(0, 10)}</h4>
                 </div>
                 <div class="card-body">
-                    <div class="center">
+                    <div class="text-center">
                         <h4 class="m-0 p-0">${capitalize(day.averageDescription)}</h4>
                         <img class="small-icon" src="http://openweathermap.org/img/w/${day.averageIcon}.png" alt="weather-icon">
     <p class="mb-3 mt-0">${day.minTemp}&#8457; / ${day.maxTemp}&#8457;</p>
