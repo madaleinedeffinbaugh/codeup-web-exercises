@@ -47,7 +47,7 @@ function currentWeather(longitude,latitude) {
         // //today
         todayForecast = createCurrentDayData(data);
         console.log(todayForecast)
-        addRegCard(todayForecast, todayConverted, today,"card-one");
+        addRegCard(todayForecast, today,"card-one");
     });
 
 }
@@ -87,25 +87,25 @@ function forecastWeather(longitude, latitude) {
         tomorrowsForecast = createDayData(data)
         setDayInfo(tomorrowsForecast, tomorrowConverted, data);
         manipulateData(tomorrowsForecast);
-        addRegCard(tomorrowsForecast, tomorrowConverted, tomorrow,"card-two");
+        addRegCard(tomorrowsForecast,  tomorrow,"card-two");
 
         //third day
         thirdDayForecast = createDayData(data);
         setDayInfo(thirdDayForecast, thirdDayConverted, data);
         manipulateData(thirdDayForecast);
-        addRegCard(thirdDayForecast, thirdDayConverted, thirdDay,"card-three");
+        addRegCard(thirdDayForecast,  thirdDay,"card-three");
 
         //fourth day
         fourthDayForecast = createDayData(data);
         setDayInfo(fourthDayForecast, fourthDayConverted, data);
         manipulateData(fourthDayForecast);
-        addRegCard(fourthDayForecast, fourthDayConverted, fourthDay,"card-four");
+        addRegCard(fourthDayForecast,  fourthDay,"card-four");
 
         //fifth day
         fifthDayForecast = createDayData(data);
         setDayInfo(fifthDayForecast, fifthDayConverted, data);
         manipulateData(fifthDayForecast);
-        addRegCard(fifthDayForecast, fifthDayConverted, fifthDay,"card-five");
+        addRegCard(fifthDayForecast,  fifthDay,"card-five");
 
         buttonRegListeners();
     });
@@ -225,7 +225,7 @@ function hourlies(day) {
 
     return html;
 }
-function addRegCard(day, date, longDate, place) {
+function addRegCard(day, longDate, place) {
     var button = `<button class="btn view-more ${place}">View More</button>`;
 
     if(place == 'card-one' ){
@@ -257,7 +257,7 @@ function addRegCard(day, date, longDate, place) {
 
     $(`#${place}`).html(regularCardTemplate);
 }
-function addLargeCard(place, day, longDate, date) {
+function addLargeCard(place, day, longDate) {
     var largeCardTemplate = `<div class="card">
             <div class="card-header text-center">
                <h3> ${longDate.toString().slice(0,10)}</h3>
@@ -265,7 +265,6 @@ function addLargeCard(place, day, longDate, date) {
             <div class="card-body text-center">
                 <div>
                     <p class="m-0"${day.minTemp}&#8457; / ${day.maxTemp}&#8457;</p>
-<!--                   <img class="large-icon" src="http://openweathermap.org/img/w/${day.averageIcon}.png" alt="weather-icon">-->
                <h3 class="m-0">Average For the Day </h3>
                <img class="medium-icon" src="http://openweathermap.org/img/w/${day.averageIcon}.png" alt="weather-icon">
                <h4 class="m-0">${capitalize(day.averageDescription)}</h4>
@@ -273,7 +272,6 @@ function addLargeCard(place, day, longDate, date) {
                 <div class="d-flex flex-wrap justify-content-evenly mt-3 info">
                     <p><strong>Temperature: </strong>${day.averageTemp.toFixed(2)}&#8457;</p>
                     <p><strong>Feels Like: </strong>${day.averageFeelsLike.toFixed(2)}&#8457;</p>
-<!--                    <p><strong>Description: </strong>${capitalize(day.averageDescription)}</p>-->
                     <p><strong>Humidity: </strong>${day.averageHumidity.toFixed(2)}%</p>
                     <p><strong>Wind: </strong>${day.averageSpeed.toFixed(2)}mph</p>
                     <p><strong>Pressure: </strong>${day.averagePressure} hPa</p>
@@ -298,23 +296,20 @@ function addLargeCard(place, day, longDate, date) {
 
 }
 function buttonRegListeners() {
-    $('button.card-one').click(function () {
-        regButtonActions('card-one', todayForecast, today,todayConverted);
-    });
     $('button.card-two').click(function () {
-        regButtonActions('card-two', tomorrowsForecast, tomorrow, tomorrowConverted);
+        regButtonActions('card-two', tomorrowsForecast, tomorrow);
     });
     $('button.card-three').click(function () {
-        regButtonActions('card-three', thirdDayForecast, thirdDay, thirdDayConverted);
+        regButtonActions('card-three', thirdDayForecast, thirdDay);
     });
     $('button.card-four').click(function () {
-        regButtonActions('card-four', fourthDayForecast, fourthDay, fourthDayConverted);
+        regButtonActions('card-four', fourthDayForecast, fourthDay);
     });
     $('button.card-five').click(function () {
-        regButtonActions('card-five', fifthDayForecast, fifthDay,fifthDayConverted);
+        regButtonActions('card-five', fifthDayForecast, fifthDay);
     })
 }
-function regButtonActions(cardNo, forecastDay, longDate,date) {
+function regButtonActions(cardNo, forecastDay, longDate) {
     var cards = ['card-one', 'card-two', 'card-three', 'card-four', 'card-five'];
     var index = cards.indexOf(cardNo);
     if (index !== -1) {
@@ -329,19 +324,19 @@ function regButtonActions(cardNo, forecastDay, longDate,date) {
 }
 function buttonLargeListeners() {
     $('button.card-two').click(function () {
-        largeButtonActions('card-two', tomorrowsForecast, tomorrow, tomorrowConverted);
+        largeButtonActions('card-two', tomorrowsForecast, tomorrow);
     });
     $('button.card-three').click(function () {
-        largeButtonActions('card-three', thirdDayForecast, thirdDay, thirdDayConverted);
+        largeButtonActions('card-three', thirdDayForecast, thirdDay);
     });
     $('button.card-four').click(function () {
-        largeButtonActions('card-four', fourthDayForecast, fourthDay, fourthDayConverted);
+        largeButtonActions('card-four', fourthDayForecast, fourthDay);
     });
     $('button.card-five').click(function () {
-        largeButtonActions('card-five', fifthDayForecast, fifthDay, fifthDayConverted);
+        largeButtonActions('card-five', fifthDayForecast, fifthDay);
     })
 }
-function largeButtonActions(cardNo, forecastDay, longDate, date) {
+function largeButtonActions(cardNo, forecastDay, longDate) {
     var cards = ['card-one', 'card-two', 'card-three', 'card-four', 'card-five'];
     var index = cards.indexOf(cardNo);
     if (index !== -1) {
@@ -351,7 +346,7 @@ function largeButtonActions(cardNo, forecastDay, longDate, date) {
         $(`#${card}`).removeClass('d-none');
     });
     $(`#${cardNo}`).html("<div></div>");
-    addRegCard(forecastDay, date, longDate, cardNo);
+    addRegCard(forecastDay, longDate, cardNo);
     buttonRegListeners();
 }
 function capitalize(words) {
