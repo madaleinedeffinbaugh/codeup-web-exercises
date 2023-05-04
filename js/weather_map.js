@@ -40,6 +40,7 @@ function currentWeather(longitude,latitude) {
         console.log("current")
         console.log(data);
         $('#location').html(`${data.name}`);
+        displayAll();
         //
         // clearCards();
         // $('#card-two').removeClass('d-none')
@@ -50,8 +51,6 @@ function currentWeather(longitude,latitude) {
     });
 
 }
-
-
 function displayAll(){
     var cards = ['card-one', 'card-two', 'card-three', 'card-four','card-five',];
     cards.forEach(function(card) {
@@ -59,27 +58,21 @@ function displayAll(){
     })
 
 }
-
 function convertDate(dateTime) {
     let unix_timestamp = dateTime;
     var date = new Date(unix_timestamp * 1000);
     return date.toISOString().slice(0, 10);
 }
-
 function displayDate() {
     let unix_timestamp = dateTime;
     var date = new Date(unix_timestamp * 1000);
     console.log(date)
 }
-
 function convertTime(dateTime) {
     let unix_timestamp = dateTime;
     var date = new Date(unix_timestamp * 1000);
     return date.toString().slice(16, 24);
 }
-
-
-
 function forecastWeather(longitude, latitude) {
     $.get("http://api.openweathermap.org/data/2.5/forecast", {
         APPID: OPEN_WEATHER_KEY,
@@ -117,7 +110,6 @@ function forecastWeather(longitude, latitude) {
         buttonRegListeners();
     });
 }
-
 function displayTime(time){
     var headerTime = time.slice(0,2);
     var endTime = time.slice(3,5);
@@ -133,9 +125,7 @@ function displayTime(time){
         return (`${headerTime}:${endTime} ${suffix}`)
     }
 }
-
 // displayTime("13:23:12");
-
 function createCurrentDayData(data) {
         return {
             minTemp: data.main.temp_min,
@@ -162,7 +152,6 @@ function createDayData(data) {
         humiditys: []
     }
 }
-
 function setDayInfo(day, date, data) {
     for (var i = 0; i < data.list.length; i++) {
         if (convertDate(data.list[i].dt) == date) {
@@ -178,7 +167,6 @@ function setDayInfo(day, date, data) {
         }
     }
 }
-
 function manipulateData(day) {
     day.averageTemp = getAverage(day.temps);
     day.minTemp = Math.min.apply(null, day.temps);
@@ -190,7 +178,6 @@ function manipulateData(day) {
     day.averageHumidity = getAverage(day.humiditys)
     day.averageIcon = day.icons[day.description.indexOf(day.averageDescription)];
 }
-
 function getAverage(arr) {
     var sum = 0;
     arr.forEach(function (element) {
@@ -199,7 +186,6 @@ function getAverage(arr) {
     var average = sum / arr.length;
     return average;
 }
-
 function mostFrequent(arr) {
     var words = [];
     var count = [];
@@ -224,7 +210,6 @@ function mostFrequent(arr) {
     // console.log(mostOccured)
     return mostOccured;
 }
-
 function hourlies(day) {
     var html = ``;
     for (var i = 0; i < day.times.length; i++) {
@@ -240,7 +225,6 @@ function hourlies(day) {
 
     return html;
 }
-
 function addRegCard(day, date, longDate, place) {
     var button = `<button class="btn view-more ${place}">View More</button>`;
 
@@ -273,7 +257,6 @@ function addRegCard(day, date, longDate, place) {
 
     $(`#${place}`).html(regularCardTemplate);
 }
-
 function addLargeCard(place, day, longDate, date) {
     var largeCardTemplate = `<div class="card">
             <div class="card-header text-center">
@@ -285,11 +268,12 @@ function addLargeCard(place, day, longDate, date) {
 <!--                   <img class="large-icon" src="http://openweathermap.org/img/w/${day.averageIcon}.png" alt="weather-icon">-->
                <h3 class="m-0">Average For the Day </h3>
                <img class="medium-icon" src="http://openweathermap.org/img/w/${day.averageIcon}.png" alt="weather-icon">
+               <h4 class="m-0">${capitalize(day.averageDescription)}</h4>
                 </div>
                 <div class="d-flex flex-wrap justify-content-evenly mt-3 info">
                     <p><strong>Temperature: </strong>${day.averageTemp.toFixed(2)}&#8457;</p>
                     <p><strong>Feels Like: </strong>${day.averageFeelsLike.toFixed(2)}&#8457;</p>
-                    <p><strong>Description: </strong>${capitalize(day.averageDescription)}</p>
+<!--                    <p><strong>Description: </strong>${capitalize(day.averageDescription)}</p>-->
                     <p><strong>Humidity: </strong>${day.averageHumidity.toFixed(2)}%</p>
                     <p><strong>Wind: </strong>${day.averageSpeed.toFixed(2)}mph</p>
                     <p><strong>Pressure: </strong>${day.averagePressure} hPa</p>
@@ -313,7 +297,6 @@ function addLargeCard(place, day, longDate, date) {
     $(`#${place}`).html(largeCardTemplate);
 
 }
-
 function buttonRegListeners() {
     $('button.card-one').click(function () {
         regButtonActions('card-one', todayForecast, today,todayConverted);
@@ -331,7 +314,6 @@ function buttonRegListeners() {
         regButtonActions('card-five', fifthDayForecast, fifthDay,fifthDayConverted);
     })
 }
-
 function regButtonActions(cardNo, forecastDay, longDate,date) {
     var cards = ['card-one', 'card-two', 'card-three', 'card-four', 'card-five'];
     var index = cards.indexOf(cardNo);
@@ -345,7 +327,6 @@ function regButtonActions(cardNo, forecastDay, longDate,date) {
     addLargeCard(cardNo, forecastDay, longDate);
     buttonLargeListeners();
 }
-
 function buttonLargeListeners() {
     $('button.card-two').click(function () {
         largeButtonActions('card-two', tomorrowsForecast, tomorrow, tomorrowConverted);
@@ -360,7 +341,6 @@ function buttonLargeListeners() {
         largeButtonActions('card-five', fifthDayForecast, fifthDay, fifthDayConverted);
     })
 }
-
 function largeButtonActions(cardNo, forecastDay, longDate, date) {
     var cards = ['card-one', 'card-two', 'card-three', 'card-four', 'card-five'];
     var index = cards.indexOf(cardNo);
@@ -374,7 +354,6 @@ function largeButtonActions(cardNo, forecastDay, longDate, date) {
     addRegCard(forecastDay, date, longDate, cardNo);
     buttonRegListeners();
 }
-
 function capitalize(words) {
     var separatedWords = words.split(" ");
     var capitalized = [];
@@ -389,8 +368,6 @@ function capitalize(words) {
     console.log(capitalized)
     // return words;
 }
-
-
 $('#slider').click(function() {
     if($('body').hasClass('body-bg-red')) {
         $('body').removeClass('body-bg-red');
@@ -418,14 +395,10 @@ $('#slider').click(function() {
     }
 })
 
-
 //starting points
 var startingZoom = 12;
 var startLat = 43.484744;
 var startLon = -116.444975;
-
-// var mapstyle = "mapbox://styles/madaleinedeffinbaugh/clh7vyivy00ax01pwg6559g0x"
-
 
 //creating map
 mapboxgl.accessToken = MAPBOX_KEY;
@@ -438,7 +411,6 @@ const map = new mapboxgl.Map({
     center: [startLon, startLat], // [lng, lat]
     zoom: startingZoom
 });
-
 
 map.doubleClickZoom.disable();
 
@@ -463,8 +435,6 @@ function placeMarkerGeocode(info, token, map) {
         // console.log(coordinates)
     });
 }
-
-
 function placeMarkerCoordinates(longlat, token, map) {
     var coordinates = longlat;
     marker = new mapboxgl.Marker()
@@ -474,8 +444,6 @@ function placeMarkerCoordinates(longlat, token, map) {
     //cords are lon first
     // console.log("coords" + coordinates)
 }
-
-
 //change marker on double click
 map.on('dblclick', (e) => {
     marker.remove();
@@ -485,8 +453,6 @@ map.on('dblclick', (e) => {
     forecastWeather(e.lngLat.lng, e.lngLat.lat);
 
 });
-
-
 //change marker location on search
 $('#search').keyup(function (e) {
     if (e.key === "Enter") {
