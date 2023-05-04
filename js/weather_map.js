@@ -434,7 +434,7 @@
         // would be veeerryy lengthy.
         var html = ``;
         for (var i = 0; i < day.times.length; i++) {
-            html += `<div class="col three-hour red-weather">
+            html += `<div class="col three-hour purple-weather">
                                 <div class="p-0">
                                     <h6 class="m-0">${displayTime(day.times[i])}</h6>
                                      <img class="small-icon" src="http://openweathermap.org/img/w/${day.icons[i]}.png" alt="weather-icon">
