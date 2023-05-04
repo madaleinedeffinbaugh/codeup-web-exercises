@@ -1,22 +1,31 @@
 //making dates
 var today = new Date()
-var todayConverted = today.toISOString().slice(0, 10);
+// var todayConverted = today.toISOString().slice(0, 10);
 
 var tomorrow = new Date(today)
 tomorrow.setDate(tomorrow.getDate() + 1)
-var tomorrowConverted = tomorrow.toISOString().slice(0, 10);
+// console.log(tomorrow)
+// console.log(convertDate(tomorrow))
+// var tomorrowConverted = tomorrow.toISOString().slice(0, 10);
+// console.log(tomorrowConverted)
 
 var thirdDay = new Date(today)
 thirdDay.setDate(thirdDay.getDate() + 2)
-var thirdDayConverted = thirdDay.toISOString().slice(0, 10);
+// var thirdDayConverted = thirdDay.toISOString().slice(0, 10);
 
 var fourthDay = new Date(today)
 fourthDay.setDate(fourthDay.getDate() + 3)
-var fourthDayConverted = fourthDay.toISOString().slice(0, 10);
+// var fourthDayConverted = fourthDay.toISOString().slice(0, 10);
 
 var fifthDay = new Date(today)
 fifthDay.setDate(fifthDay.getDate() + 4)
-var fifthDayConverted = fifthDay.toISOString().slice(0, 10);
+// var fifthDayConverted = fifthDay.toISOString().slice(0, 10);
+
+
+function createDates() {
+
+}
+
 
 //variables to hold date objects
 var todayForecast;
@@ -58,9 +67,15 @@ function displayAll(){
     })
 
 }
-function convertDate(dateTime) {
+function convertDateFromDateTime(dateTime) {
+    // console.log(dateTime)
     let unix_timestamp = dateTime;
     var date = new Date(unix_timestamp * 1000);
+    // console.log(date.toISOString().slice(0, 10))
+    return date.toISOString().slice(0, 10);
+}
+
+function convertDate(date) {
     return date.toISOString().slice(0, 10);
 }
 function displayDate() {
@@ -85,25 +100,25 @@ function forecastWeather(longitude, latitude) {
 
         //tomorrow
         tomorrowsForecast = createDayData(data)
-        setDayInfo(tomorrowsForecast, tomorrowConverted, data);
+        setDayInfo(tomorrowsForecast, convertDate(tomorrow), data);
         manipulateData(tomorrowsForecast);
         addRegCard(tomorrowsForecast,  tomorrow,"card-two");
 
         //third day
         thirdDayForecast = createDayData(data);
-        setDayInfo(thirdDayForecast, thirdDayConverted, data);
+        setDayInfo(thirdDayForecast, convertDate(thirdDay), data);
         manipulateData(thirdDayForecast);
         addRegCard(thirdDayForecast,  thirdDay,"card-three");
 
         //fourth day
         fourthDayForecast = createDayData(data);
-        setDayInfo(fourthDayForecast, fourthDayConverted, data);
+        setDayInfo(fourthDayForecast, convertDate(fourthDay), data);
         manipulateData(fourthDayForecast);
         addRegCard(fourthDayForecast,  fourthDay,"card-four");
 
         //fifth day
         fifthDayForecast = createDayData(data);
-        setDayInfo(fifthDayForecast, fifthDayConverted, data);
+        setDayInfo(fifthDayForecast, convertDate(fifthDay), data);
         manipulateData(fifthDayForecast);
         addRegCard(fifthDayForecast,  fifthDay,"card-five");
 
@@ -154,7 +169,8 @@ function createDayData(data) {
 }
 function setDayInfo(day, date, data) {
     for (var i = 0; i < data.list.length; i++) {
-        if (convertDate(data.list[i].dt) == date) {
+        // console.log(convertDate(data.list[i].dt));
+        if (convertDateFromDateTime(data.list[i].dt) == date) {
             var dateTxt = data.list[i].dt_txt
             day.times.push(dateTxt.slice(11, 19));
             day.temps.push(data.list[i].main.temp);
