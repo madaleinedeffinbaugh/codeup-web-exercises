@@ -27,6 +27,28 @@
     var fifthDayForecast;
 
 
+
+    //variables to hold date objects containing information from open weather api
+    // var icon01d = '<img src="img/01d.png" alt="sun">'
+    // var icon01n = '<img src="img/01n.png" alt="moon">'
+    // var icon02d = '<img src="img/02d.png" alt="clouds">'
+    // var icon02n = '<img src="img/02n.png" alt="clouds">'
+    // var icon03d = '<img src="img/03d.png" alt="clouds">'
+    // var icon03n = '<img src="img/03d.png" alt="clouds">'
+    // var icon04d = '<img src="img/04d.png" alt="clouds">'
+    // var icon04n = '<img src="img/04d.png" alt="clouds">'
+    // var icon09d = '<img src="img/09d.png" alt="rain">'
+    // var icon09n = '<img src="img/09d.png" alt="rain">'
+    // var icon10d = '<img src="img/09d.png" alt="rain">'
+    // var icon10n = '<img src="img/09d.png" alt="rain">'
+    // var icon11d = '<img src="img/11d.png" alt="thunderstorm">'
+    // var icon11n = '<img src="img/11d.png" alt="thunderstorm">'
+    // var icon13d = '<img src="img/13d.png" alt="snow">'
+    // var icon13n = '<img src="img/13d.png" alt="snow">'
+    // var icon50d = '<img src="img/50d.png" alt="mist">'
+    // var icon50n = '<img src="img/50d.png" alt="mist">'
+
+
     //calling forecast weather on my hometown first
     currentWeather(-116.444975, 43.484744);
     forecastWeather(-116.444975, 43.484744);
@@ -124,6 +146,7 @@
             lon: longitude,
             units: 'imperial'
         }).done(function (data) {
+            console.log(data)
             $('#location').html(`${data.name}`);
             displayAll();
 
@@ -156,6 +179,7 @@
             lon: longitude,
             units: 'imperial'
         }).done(function (data) {
+            console.log(data)
             //creating the date objects, adding and manipulating the data,
             // and then appending it to their respective cards.
 
@@ -331,10 +355,10 @@
         //it disables and hides the button for the first card because the current weather call
         //does not provide hourly forecast information, therefore, there is no need for the view
         //more button
-        var button = `<button class="btn view-more ${place}">View More</button>`;
+        var button = `<button class="btn view-more ${place}">View 3 Hour Forecast</button>`;
 
         if (place == 'card-one') {
-            var button = `<button class="btn view-more ${place}" disabled>View More</button>`
+            var button = `<button class="btn view-more ${place}" disabled>View 3 Hour Forecast</button>`
         }
 
         var regularCardTemplate = `<div class="card">
@@ -343,18 +367,18 @@
                 </div>
                 <div class="card-body">
                     <div class="text-center">
-                        <h4 class="m-0 p-0">${capitalize(day.averageDescription)}</h4>
+                        <h5 class="m-0 p-0">${capitalize(day.averageDescription)}</h5>
                         <img class="small-icon" src="http://openweathermap.org/img/w/${day.averageIcon}.png" alt="weather-icon">
                         <h5>${day.averageTemp.toFixed(2)}&#8457;</h5>
                         <p class="mb-3 mt-0">${day.minTemp}&#8457; / ${day.maxTemp}&#8457;</p>
                     </div>
-                    <div class="my-1">
+                    <div class="my-1 text-center">
                     <p><strong>Humidity: </strong>${day.averageHumidity.toFixed(2)}%</p>
                     <p><strong>Wind: </strong>${day.averageSpeed.toFixed(2)} mph</p>
                     <p><strong>Pressure: </strong>${day.averagePressure.toFixed(0)} hPa</p>
                     </div>
                 </div>
-               <div class="card-footer p-0 d-flex justify-content-end">
+               <div class="card-footer p-0 d-flex justify-content-center">
                     ${button}
                 </div>
             </div>`
@@ -404,9 +428,8 @@
                 <div class="card-body text-center">
                     <div>
                         <p class="m-0"${day.minTemp}&#8457; / ${day.maxTemp}&#8457;</p>
-                   <h3 class="m-0">Average For the Day </h3>
+                   <h5 class="m-0">${capitalize(day.averageDescription)}</h5>
                    <img class="medium-icon" src="http://openweathermap.org/img/w/${day.averageIcon}.png" alt="weather-icon">
-                   <h4>${capitalize(day.averageDescription)}</h4>
                    <h5>${day.averageTemp.toFixed(2)}&#8457;</h5>
                     </div>
                     <div class="d-flex flex-wrap justify-content-evenly mt-3 info">
@@ -419,15 +442,14 @@
                         <p><strong>Sunrise: </strong>${displayTime(convertTime(day.sunrise))}</p>
                         <p><strong>Sunset: </strong>${displayTime(convertTime(day.sunset))}</p>
                     </div>
-                    <h4 class="my-1 py-3">3 Hour Forecast</h4>
                     <div class="hourly">
-                        <div class="row d-flex justify-content-center flex-nowrap overflow-auto">
+                        <div class="row mx-2 d-flex justify-content-center flex-nowrap overflow-auto">
                             ${hourlys(day)}
                         </div>
                     </div>
                 </div>
                 <div class="card-footer d-flex justify-content-end">
-                    <button class="btn view-less ${place}">View Less</button>
+                    <button class="btn view-less ${place}">Return to Main Forecasts</button>
                 </div>
             </div>`
 

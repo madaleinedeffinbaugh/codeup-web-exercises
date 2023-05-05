@@ -39,9 +39,9 @@ html,body {
 }
 
 #map {
-    margin: 1em auto;
+    margin: 1em 4em;
     height: 300px;
-    width: calc(100% - 2em);
+    width: calc(100% - 8em);
 }
 
 path {
