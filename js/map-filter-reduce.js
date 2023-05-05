@@ -36,21 +36,21 @@ const users = [
     }
 ];
 
-var knowsAtLeastThree = users.filter(user => user.languages.length >= 3);
+let knowsAtLeastThree = users.filter(user => user.languages.length >= 3);
 
 // console.log(knowsAtLeastThree)
 
-var emails = users.map(user => user.email);
+let emails = users.map(user => user.email);
 
 // console.log(emails)
 
-var totalYearsOfExperience = users.reduce((total, person) => {
+let totalYearsOfExperience = users.reduce((total, person) => {
     return total + person.yearsOfExperience
 },0)
 
 // console.log(totalYearsOfExperience)
 
-var longestEmail = users.reduce((total, person) => {
+let longestEmail = users.reduce((total, person) => {
     if(person.email.length > total.length) {
         total = person.email
     }
@@ -60,7 +60,7 @@ var longestEmail = users.reduce((total, person) => {
 // console.log(longestEmail)
 
 
-var names = users.reduce((accumulation, person) => {
+let names = users.reduce((accumulation, person) => {
     if(users.indexOf(person) === users.length -1 ) {
         return accumulation + `${person.name}.`
     } else {
@@ -70,3 +70,16 @@ var names = users.reduce((accumulation, person) => {
 }, "Your instructors are: ")
 
 // console.log(names)
+
+
+//bonus
+let uniqueLanguages = users.reduce((all, person) => {
+    person.languages.forEach(language => {
+        if(!all.includes(language)) {
+            all.push(language);
+        }
+    });
+    return all;
+},[])
+
+console.log(uniqueLanguages)
