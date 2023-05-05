@@ -100,6 +100,7 @@
             marker = new mapboxgl.Marker()
                 .setLngLat(coordinates)
                 .addTo(map)
+            map.flyTo({center: coordinates});
         });
     }
 
@@ -109,6 +110,7 @@
         marker = new mapboxgl.Marker()
             .setLngLat(coordinates)
             .addTo(map)
+        map.flyTo({center: coordinates});
     }
 
 
