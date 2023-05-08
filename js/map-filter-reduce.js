@@ -48,7 +48,10 @@ let totalYearsOfExperience = users.reduce((total, person) => {
     return total + person.yearsOfExperience
 },0)
 
+let averageExperience = totalYearsOfExperience / users.length;
+
 // console.log(totalYearsOfExperience)
+// console.log(averageExperience);
 
 let longestEmail = users.reduce((total, person) => {
     if(person.email.length > total.length) {
