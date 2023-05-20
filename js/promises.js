@@ -1,3 +1,7 @@
+"use strict";
+
+(function() {
+
 function gitRequest(username) {
     return fetch(`https://api.github.com/users/${username}/events`, {headers: {'Authorization': GITHUB_TOKEN}})
         .then(res => res.json())
@@ -17,3 +21,5 @@ function wait(time) {
 wait(1000).then(res => console.log(`You'll see this after ${res/1000} second(s)`));
 wait(3000).then(res => console.log(`You'll see this after ${res/1000} second(s)`));
 wait(5000).then(res => console.log(`You'll see this after ${res/1000} second(s)`));
+
+})();

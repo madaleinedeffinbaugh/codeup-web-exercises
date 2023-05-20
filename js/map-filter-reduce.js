@@ -1,3 +1,7 @@
+"use strict";
+
+(function() {
+
 const users = [
     {
         id: 1,
@@ -85,4 +89,6 @@ let uniqueLanguages = users.reduce((all, person) => {
     return all;
 },[])
 
-console.log(uniqueLanguages)
+console.log(uniqueLanguages);
+
+})();
